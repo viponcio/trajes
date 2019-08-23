@@ -2,6 +2,7 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" >
+
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -9,25 +10,25 @@
 
 <body>
     <title>Forumulario de Entrada do Cliente</title>
-    <form method="post">
-        Nome:<input type="text" value="" name="nomeCli">
-        </br>
-        Sobrenome:<input type="text" value="" name="sobrenomeCli">
 
-        E-mail:<input type="text" value="" name="emailCli">
-        Senha:<input type="text" value="" name="senhaCli">
-        Fone:<input type="number" value="" name="foneCli">
-        Rua:<input type="text" value="" name="ruaCli">
-        CEP:<input type="text" value="" name="cepCli">
-        Bairro:<input type="text" value="" name="bairroCli">
-        Número:<input type="text" value="" name="numeroCli">
-        Sexo:<input type="text" value="" name="sexo">
-        CPF:<input type="text" value="" name="cpfCli">
-        Data de Nascimento:<input type="text" value="" name="nascimentoCli">
-        Estado:<input type="text" value="" name="EstadoCli">
-        Cidade:<input type="text" value="" name="cidadeCli">
+    <form method="POST" action="/cadastrarCliente">
+        Nome:<input type="text" name="nomeCli">
+        Sobrenome:<input type="text"  name="sobrenomeCli">
+        E-mail:<input type="text"  name="emailCli">
+        Senha:<input type="text"  name="senhaCli">
+        Fone:<input type="number"  name="foneCli">
+        Rua:<input type="text"  name="ruaCli">
+        CEP:<input type="text"  name="cepCli">
+        Bairro:<input type="text"  name="bairroCli">
+        Número:<input type="text"  name="numeroCli">
+        Sexo:<input type="text"  name="sexo">
+        CPF:<input type="text"  name="cpfCli">
+        Data de Nascimento:<input type="date" value="" name="nascimentoCli">
+        Estado:<input type="text"  name="EstadoCli">
+        Cidade:<input type="text"  name="cidadeCli">
 
         <button type="submit">Salvar</button>
     </form>
+
 </body>
 </html>

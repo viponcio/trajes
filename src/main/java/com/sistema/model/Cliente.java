@@ -1,9 +1,6 @@
 package com.sistema.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 //essa classe o hibernate irá automaticamente se torna a tabela
 @Entity
@@ -11,8 +8,9 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idCli;
+    private Long idCli;
 
+    @Column()
     private String nomeCli;
     private String sobrenomeCli;
     private String emailCli;
@@ -28,7 +26,7 @@ public class Cliente implements Serializable {
     private String EstadoCli;
     private String cidadeCli;
 
-    public Cliente(int idCli, String nomeCli, String sobrenomeCli, String emailCli, String senhaCli, float foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String sexo, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
+    public Cliente(Long idCli, String nomeCli, String sobrenomeCli, String emailCli, String senhaCli, float foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String sexo, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
         this.idCli = idCli;
         this.nomeCli = nomeCli;
         this.sobrenomeCli = sobrenomeCli;
@@ -45,12 +43,14 @@ public class Cliente implements Serializable {
         EstadoCli = estadoCli;
         this.cidadeCli = cidadeCli;
     }
+    public Cliente(){
 
-    public int getIdCli() {
+    }
+    public Long getIdCli() {
         return idCli;
     }
 
-    public void setIdCli(int idCli) {
+    public void setIdCli(Long idCli) {
         this.idCli = idCli;
     }
 
