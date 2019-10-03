@@ -1,41 +1,43 @@
 package com.sistema.model;
+import javax.persistence.*;
+import java.io.Serializable;
 
-public class RoupaUtensilios {
-    private int codRoupaUtensilios;
+@Entity
+public class RoupaUtensilios implements Serializable {
+    private static final long serialVersionUID=1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long codRoupaUtensilios;
 
-    private int tamanho;
-
+    @Column
+    private char tamanho;//deixar em char pois pode ser num ou palavra
     private float precoRoupaUtensilio;
-
-    private String caracRoupaUtensilios;
-
-    private int quantidade;
+    private String cor;
 
     public RoupaUtensilios(){
 
     }
 
-    public RoupaUtensilios(int codRoupaUtensilios, int tamanho, float precoRoupaUtensilio, String caracRoupaUtensilios, int quantidade) {
+    public RoupaUtensilios(Long codRoupaUtensilios, char tamanho, float precoRoupaUtensilio, String cor) {
         this.codRoupaUtensilios = codRoupaUtensilios;
         this.tamanho = tamanho;
         this.precoRoupaUtensilio = precoRoupaUtensilio;
-        this.caracRoupaUtensilios = caracRoupaUtensilios;
-        this.quantidade = quantidade;
+        this.cor = cor;
     }
 
-    public int getCodRoupaUtensilios() {
+    public Long getCodRoupaUtensilios() {
         return codRoupaUtensilios;
     }
 
-    public void setCodRoupaUtensilios(int codRoupaUtensilios) {
+    public void setCodRoupaUtensilios(Long codRoupaUtensilios) {
         this.codRoupaUtensilios = codRoupaUtensilios;
     }
 
-    public int getTamanho() {
+    public char getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(int tamanho) {
+    public void setTamanho(char tamanho) {
         this.tamanho = tamanho;
     }
 
@@ -47,19 +49,11 @@ public class RoupaUtensilios {
         this.precoRoupaUtensilio = precoRoupaUtensilio;
     }
 
-    public String getCaracRoupaUtensilios() {
-        return caracRoupaUtensilios;
+    public String getCor() {
+        return cor;
     }
 
-    public void setCaracRoupaUtensilios(String caracRoupaUtensilios) {
-        this.caracRoupaUtensilios = caracRoupaUtensilios;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 }

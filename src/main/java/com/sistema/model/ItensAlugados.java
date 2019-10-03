@@ -2,7 +2,6 @@ package com.sistema.model;
 
 public class ItensAlugados {
     private int codRoupaUtensilios;
-
     private int codAluguel;
 
     public ItensAlugados(){

@@ -1,32 +1,38 @@
 package com.sistema.model;
+import javax.persistence.*;
+import java.io.Serializable;
+@Entity
+public class TipoRoupa implements Serializable{
+    private static final long serialVersionUID=1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-public class TipoRoupa {
-    private int codTipoRoupa;
-
-    private String tipo;
+    @Column
+    private Long codTipoRoupa;
+    private String descricao;
 
     public TipoRoupa(){
 
     }
 
-    public TipoRoupa(int codTipoRoupa, String tipo) {
+    public TipoRoupa(Long codTipoRoupa, String descricao) {
         this.codTipoRoupa = codTipoRoupa;
-        this.tipo = tipo;
+        this.descricao = descricao;
     }
 
-    public int getCodTipoRoupa() {
+    public Long getCodTipoRoupa() {
         return codTipoRoupa;
     }
 
-    public void setCodTipoRoupa(int codTipoRoupa) {
+    public void setCodTipoRoupa(Long codTipoRoupa) {
         this.codTipoRoupa = codTipoRoupa;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

@@ -1,56 +1,42 @@
 package com.sistema.model;
-
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+@Entity
+public class Aluguel implements Serializable{
+    private static final long serialVersionUID=1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long codAluguel;
 
-public class Aluguel {
-    private int idCli;
-
-    private int idRoupaUtensilios;
-
+    @Column
     private float preco;
-
     private Date dataEvento;
-
     private Date dataProva;
-
     private Date dataRetirada;
-
     private Date dataEntrega;
-
     private int idFunc;
-
-    private int codAluguel;
 
     public Aluguel(){
 
     }
 
-    public Aluguel(int idCli, int idRoupaUtensilios, float preco, Date dataEvento, Date dataProva, Date dataRetirada, Date dataEntrega, int idFunc, int codAluguel) {
-        this.idCli = idCli;
-        this.idRoupaUtensilios = idRoupaUtensilios;
+    public Long getCodAluguel() {
+        return codAluguel;
+    }
+
+    public void setCodAluguel(Long codAluguel) {
+        this.codAluguel = codAluguel;
+    }
+
+    public Aluguel(Long codAluguel, float preco, Date dataEvento, Date dataProva, Date dataRetirada, Date dataEntrega, int idFunc) {
+        this.codAluguel = codAluguel;
         this.preco = preco;
         this.dataEvento = dataEvento;
         this.dataProva = dataProva;
         this.dataRetirada = dataRetirada;
         this.dataEntrega = dataEntrega;
         this.idFunc = idFunc;
-        this.codAluguel = codAluguel;
-    }
-
-    public int getIdCli() {
-        return idCli;
-    }
-
-    public void setIdCli(int idCli) {
-        this.idCli = idCli;
-    }
-
-    public int getIdRoupaUtensilios() {
-        return idRoupaUtensilios;
-    }
-
-    public void setIdRoupaUtensilios(int idRoupaUtensilios) {
-        this.idRoupaUtensilios = idRoupaUtensilios;
     }
 
     public float getPreco() {
@@ -101,11 +87,4 @@ public class Aluguel {
         this.idFunc = idFunc;
     }
 
-    public int getCodAluguel() {
-        return codAluguel;
-    }
-
-    public void setCodAluguel(int codAluguel) {
-        this.codAluguel = codAluguel;
-    }
 }

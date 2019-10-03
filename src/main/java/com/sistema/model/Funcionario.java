@@ -1,42 +1,35 @@
 package com.sistema.model;
+import javax.persistence.*;
+import java.io.Serializable;
+@Entity
 
-public class Funcionario {
+public class Funcionario implements Serializable {
+    private static final long serialVersionUID=1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idFunc;
 
-    private int idFunc;
-
+    @Column
     private String nomeFunc;
-
     private String sobrenomeFunc;
-
     private String emailFunc;
-
     private String senhaFunc;
-
     private float foneFunc;
-
     private String ruaFunc;
-
     private String cepFunc;
-
     private String bairroFunc;
-
     private int numeroFunc;
-
-    private String sexoFunc;
-
+    private String generoFunc;
     private String cpfFunc;
-
     private String nascimentoFunc;
-
     private String estadoFunc;
-
     private String cidadeFunc;
 
     public Funcionario(){
 
     }
 
-    public Funcionario(int idFunc, String nomeFunc, String sobrenomeFunc, String emailFunc, String senhaFunc, float foneFunc, String ruaFunc, String cepFunc, String bairroFunc, int numeroFunc, String sexoFunc, String cpfFunc, String nascimentoFunc, String estadoFunc, String cidadeFunc) {
+    public Funcionario(Long idFunc, String nomeFunc, String sobrenomeFunc, String emailFunc, String senhaFunc, float foneFunc, String ruaFunc, String cepFunc, String bairroFunc, int numeroFunc, String generoFunc, String cpfFunc, String nascimentoFunc, String estadoFunc, String cidadeFunc) {
         this.idFunc = idFunc;
         this.nomeFunc = nomeFunc;
         this.sobrenomeFunc = sobrenomeFunc;
@@ -47,18 +40,18 @@ public class Funcionario {
         this.cepFunc = cepFunc;
         this.bairroFunc = bairroFunc;
         this.numeroFunc = numeroFunc;
-        this.sexoFunc = sexoFunc;
+        this.generoFunc = generoFunc;
         this.cpfFunc = cpfFunc;
         this.nascimentoFunc = nascimentoFunc;
         this.estadoFunc = estadoFunc;
         this.cidadeFunc = cidadeFunc;
     }
 
-    public int getIdFunc() {
+    public Long getIdFunc() {
         return idFunc;
     }
 
-    public void setIdFunc(int idFunc) {
+    public void setIdFunc(Long  idFunc) {
         this.idFunc = idFunc;
     }
 
@@ -134,12 +127,12 @@ public class Funcionario {
         this.numeroFunc = numeroFunc;
     }
 
-    public String getSexoFunc() {
-        return sexoFunc;
+    public String getGeneroFunc() {
+        return generoFunc;
     }
 
-    public void setSexoFunc(String sexoFunc) {
-        this.sexoFunc = sexoFunc;
+    public void setGeneroFunc(String generoFunc) {
+        this.generoFunc = generoFunc;
     }
 
     public String getCpfFunc() {

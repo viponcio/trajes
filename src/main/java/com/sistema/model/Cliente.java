@@ -20,13 +20,13 @@ public class Cliente implements Serializable {
     private String cepCli;
     private String bairroCli;
     private String numeroCli;
-    private String sexo;
+    private String generoCli;
     private String cpfCli;
     private String nascimentoCli;
-    private String EstadoCli;
+    private String estadoCli;
     private String cidadeCli;
 
-    public Cliente(Long idCli, String nomeCli, String sobrenomeCli, String emailCli, String senhaCli, float foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String sexo, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
+    public Cliente(Long idCli, String nomeCli, String sobrenomeCli, String emailCli, String senhaCli, float foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String generoCli, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
         this.idCli = idCli;
         this.nomeCli = nomeCli;
         this.sobrenomeCli = sobrenomeCli;
@@ -37,10 +37,10 @@ public class Cliente implements Serializable {
         this.cepCli = cepCli;
         this.bairroCli = bairroCli;
         this.numeroCli = numeroCli;
-        this.sexo = sexo;
+        this.generoCli = generoCli;
         this.cpfCli = cpfCli;
         this.nascimentoCli = nascimentoCli;
-        EstadoCli = estadoCli;
+        this.estadoCli = estadoCli;
         this.cidadeCli = cidadeCli;
     }
     public Cliente(){
@@ -126,12 +126,12 @@ public class Cliente implements Serializable {
         this.numeroCli = numeroCli;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getGeneroCli() {
+        return generoCli;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setGeneroCli(String generoCli) {
+        this.generoCli = generoCli;
     }
 
     public String getCpfCli() {
@@ -151,11 +151,11 @@ public class Cliente implements Serializable {
     }
 
     public String getEstadoCli() {
-        return EstadoCli;
+        return estadoCli;
     }
 
     public void setEstadoCli(String estadoCli) {
-        EstadoCli = estadoCli;
+        this.estadoCli = estadoCli;
     }
 
     public String getCidadeCli() {
