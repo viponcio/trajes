@@ -14,7 +14,7 @@ public class Funcionario implements Serializable {
     private String sobrenomeFunc;
     private String emailFunc;
     private String senhaFunc;
-    private float foneFunc;
+    private String foneFunc;
     private String ruaFunc;
     private String cepFunc;
     private String bairroFunc;
@@ -29,7 +29,7 @@ public class Funcionario implements Serializable {
 
     }
 
-    public Funcionario(Long idFunc, String nomeFunc, String sobrenomeFunc, String emailFunc, String senhaFunc, float foneFunc, String ruaFunc, String cepFunc, String bairroFunc, int numeroFunc, String generoFunc, String cpfFunc, String nascimentoFunc, String estadoFunc, String cidadeFunc) {
+    public Funcionario(Long idFunc, String nomeFunc, String sobrenomeFunc, String emailFunc, String senhaFunc, String foneFunc, String ruaFunc, String cepFunc, String bairroFunc, int numeroFunc, String generoFunc, String cpfFunc, String nascimentoFunc, String estadoFunc, String cidadeFunc) {
         this.idFunc = idFunc;
         this.nomeFunc = nomeFunc;
         this.sobrenomeFunc = sobrenomeFunc;
@@ -87,11 +87,11 @@ public class Funcionario implements Serializable {
         this.senhaFunc = senhaFunc;
     }
 
-    public float getFoneFunc() {
+    public String getFoneFunc() {
         return foneFunc;
     }
 
-    public void setFoneFunc(float foneFunc) {
+    public void setFoneFunc(String foneFunc) {
         this.foneFunc = foneFunc;
     }
 

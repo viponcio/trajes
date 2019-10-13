@@ -14,8 +14,7 @@ public class Cliente implements Serializable {
     private String nomeCli;
     private String sobrenomeCli;
     private String emailCli;
-    private String senhaCli;
-    private float foneCli;
+    private String foneCli;
     private String ruaCli;
     private String cepCli;
     private String bairroCli;
@@ -26,12 +25,11 @@ public class Cliente implements Serializable {
     private String estadoCli;
     private String cidadeCli;
 
-    public Cliente(Long idCli, String nomeCli, String sobrenomeCli, String emailCli, String senhaCli, float foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String generoCli, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
+    public Cliente(Long idCli, String nomeCli, String sobrenomeCli, String emailCli, String foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String generoCli, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
         this.idCli = idCli;
         this.nomeCli = nomeCli;
         this.sobrenomeCli = sobrenomeCli;
         this.emailCli = emailCli;
-        this.senhaCli = senhaCli;
         this.foneCli = foneCli;
         this.ruaCli = ruaCli;
         this.cepCli = cepCli;
@@ -78,19 +76,11 @@ public class Cliente implements Serializable {
         this.emailCli = emailCli;
     }
 
-    public String getSenhaCli() {
-        return senhaCli;
-    }
-
-    public void setSenhaCli(String senhaCli) {
-        this.senhaCli = senhaCli;
-    }
-
-    public float getFoneCli() {
+    public String getFoneCli() {
         return foneCli;
     }
 
-    public void setFoneCli(float foneCli) {
+    public void setFoneCli(String foneCli) {
         this.foneCli = foneCli;
     }
 

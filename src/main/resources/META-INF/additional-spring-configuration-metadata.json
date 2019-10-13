@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.datasource.tomcat.test-on-while-idle",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.tomcat.test-on-while-idle."
+  }
+] }
