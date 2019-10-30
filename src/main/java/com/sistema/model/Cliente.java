@@ -19,13 +19,12 @@ public class Cliente implements Serializable {
     private String cepCli;
     private String bairroCli;
     private String numeroCli;
-    private String generoCli;
     private String cpfCli;
     private String nascimentoCli;
     private String estadoCli;
     private String cidadeCli;
 
-    public Cliente(Long idCli, String nomeCli, String sobrenomeCli, String emailCli, String foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String generoCli, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
+    public Cliente(Long idCli, String nomeCli, String sobrenomeCli, String emailCli, String foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
         this.idCli = idCli;
         this.nomeCli = nomeCli;
         this.sobrenomeCli = sobrenomeCli;
@@ -35,7 +34,6 @@ public class Cliente implements Serializable {
         this.cepCli = cepCli;
         this.bairroCli = bairroCli;
         this.numeroCli = numeroCli;
-        this.generoCli = generoCli;
         this.cpfCli = cpfCli;
         this.nascimentoCli = nascimentoCli;
         this.estadoCli = estadoCli;
@@ -114,14 +112,6 @@ public class Cliente implements Serializable {
 
     public void setNumeroCli(String numeroCli) {
         this.numeroCli = numeroCli;
-    }
-
-    public String getGeneroCli() {
-        return generoCli;
-    }
-
-    public void setGeneroCli(String generoCli) {
-        this.generoCli = generoCli;
     }
 
     public String getCpfCli() {

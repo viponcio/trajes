@@ -30,40 +30,55 @@
     <div class="container" style="display:flex;justify-content:center;align-items:center;">
         <a class="navbar-brand" href="/index"><b>To Dress</b></a>
         <span class="navbar-text">Sistema de Gerenciamento de Aluguel de Trajes</span>
+        <a class="btn btn-dark" href="/" role="button">Sair</a>
     </div>
 </nav>
 
 <!-- Masthead -->
 <header class="masthead text-dark text-center">
     <!-- <div class="overlay "></div>-->
+    <div class="container box-left" >
+        <h3>Nome da pessoa vai aqui</h3>
+        <i class="fas fa-address-book fa-3x"></i><a href="/gerenciarCli"> Gerenciar Cliente.</a>
+        <br>
+        <br>
+        <i class="fas fa-user-tie fa-3x"></i><a href="/gerenciarTrajes">Gerenciar Trajes.</a>
+        <!-- <div class="row">-->
+        <!--<div class="col-xl-9 mx-auto">-->
+        <!--</div>-->
+    </div>
+
     <div class="container box">
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
-        <h1>Cadastro de Funcionário</h1>
-        <form method="POST" action="/cadastroFuncionario">
-            <label>Nome:<input type="text" name="nomeFunc" id="nomeFunc" class="form-control form-control-lg" placeholder="digite o seu nome" ></label>
+        <h1>Cadastro de Cliente</h1>
+        <form method="POST" action="/salvarCli">
+            <label for="nomeCli">Nome:<input type="text" name="nomeCli" id="nomeCli" class="form-control" placeholder="digite o seu nome" ></label>
 
-            <label>Sobrenome:<input type="text" name="sobrenomeFunc" id="sobrenomeFunc" class="form-control form-control-lg" placeholder="digite o seu sobrenome"></label>
+            <label for="nascimentoCli">Data de Nascimento:<input type="date" name="nascimentoCli" id="nascimentoCli" class="form-control" ></label>
             <br>
-            <label>CPF:<input type="text" name="cpfFunc" id="cpfFunc" class="form-control cpf" placeholder="digite o cpf" ></label>
+            <label for="sobrenomeCli">Sobrenome:<input type="text" name="sobrenomeCli" id="sobrenomeCli" class="form-control" placeholder="digite o seu sobrenome"></label>
 
-            <label>Rua:<input type="text" name="ruaFunc" id="ruaFunc" class="form-control" placeholder="digite a sua rua"></label>
+            <label for="cpfCli">CPF:<input type="text" name="cpfCli" id="cpfCli" class="form-control cpf" placeholder="digite o cpf" ></label>
             <br>
-            <label>N°:<input type="number" name="numeroFunc" id="numeroFunc" class="form-control" placeholder="digite o seu n°" ></label>
+            <label for="ruaCli">Rua:<input type="text" name="ruaCli" id="ruaCli" class="form-control" placeholder="digite a sua rua"></label>
 
-            <label>Cep:<input type="text" name="cepFunc" id="cepFunc" class="form-control cep" placeholder="digite o seu cep"></label>
+            <label for="numeroCli">N°:<input type="number" name="numeroCli" id="numeroCli" class="form-control" placeholder="digite o seu n°" ></label>
             <br>
-            <label>Bairro:<input type="text" name="bairroFunc" id="bairroFunc" class="form-control" placeholder="digite o seu bairro" ></label>
-            <label>Cidade:<input type="text" name="cidadeFunc" id="cidadeFunc" class="form-control" placeholder="digite a cidade" ></label>
+            <label for="cepCli">Cep:<input type="text" name="cepCli" id="cepCli" class="form-control cep" placeholder="digite o seu cep"></label>
+
+            <label for="bairroCli">Bairro:<input type="text" name="bairroCli" id="bairroCli" class="form-control" placeholder="digite o seu bairro" ></label>
             <br>
-            <label>Estado:<input type="text" name="estadoFunc" id="estadoFunc" class="form-control" placeholder="digite o estado"></label>
-            <label>Telefone:<input type="text" name="foneFunc" id="foneFunc" class="form-control telefone" placeholder="digite o fone" ></label>
+            <label for="cidadeCli">Cidade:<input type="text" name="cidadeCli" id="cidadeCli" class="form-control" placeholder="digite a cidade" ></label>
+
+            <label for="estadoCli">Estado:<input type="text" name="estadoCli" id="estadoCli" class="form-control" placeholder="digite o estado"></label>
             <br>
-            <label>E-mail:<input type="text" name="emailFunc" id="emailFunc" class="form-control" placeholder="digite o email"></label>
-            <label>Senha:<input type="password" name="senhaFunc" id="senhaFunc" class="form-control" placeholder="digite a senha" ></label>
+            <label for="foneCli">Telefone:<input type="text" name="foneCli" id="foneCli" class="form-control telefone" placeholder="digite o fone" ></label>
+
+            <label for="emailCli">E-mail:<input type="text" name="emailCli" id="emailCli" class="form-control" placeholder="digite o email"></label>
             <br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
-
+            <a class="btn btn-primary ml-5" href="/gerenciarCli" role="button">Cancelar</a>
         </form>
         <!--</div>-->
     </div>
@@ -75,11 +90,11 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="vendor/jquery/mascaras.js"></script>
 <script src="vendor/jquery/jquery.maskedinputs.js"></script>
 </body>
+
 </html>

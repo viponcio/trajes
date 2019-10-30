@@ -28,9 +28,12 @@ header.masthead {
   padding-bottom: 15rem;
 }
 
-/*header{
+body{
+  position: relative;
+  width: 100%;
+  height: 100%;
   background-color: #254F6E;
-}*/
+}
 
 header.masthead h1 {
   font-size: 2rem;
@@ -109,13 +112,72 @@ header.masthead p {
   padding-bottom: 7rem;
 }
 
+.ml-5 {
+  margin-left: ($spacer * 3) !important;
+}
+
 label{
   padding-right: 2%;
 }
 
-.box{
+.btn-dark{
   position: relative;
+  margin-left: 10%;
+}
+
+.box{
+  position: absolute;
+  height: 190%;
+  width: 50%;
+  right:50%;
+  left:35%;
+  /*padding: 10%;*/
+  padding-top:1%;
+  padding-bottom: 1%;
+  padding-right: 2%;
+  padding-left: 2%;
+  background-color:#9AA6B4;
+  border-radius: 30px;
+}
+
+.pesquisa{
+  position: absolute;
+  right:50%;
+  left:35%;
+  /*padding: 0%;*/
+  /*margin-left: 140%;*/
+  height: 20%;
+  width: 50%;
+  padding-top:1%;
+  padding-bottom: 1%;
+  /*padding-right: 2%;*/
+  /*padding-left: 2%;*/
+  background-color:#9AA6B4;
+  border-radius: 30px;
+}
+
+.principal{
+  position: absolute;
+  top:50%;
+  right:50%;
+  left:35%;
   padding: 10%;
+  height: 70%;
+  width: 50%;
+  padding-top:1%;
+  padding-bottom: 1%;
+  padding-right: 2%;
+  padding-left: 2%;
+  background-color:#9AA6B4;
+  border-radius: 30px;
+}
+
+.box-left{
+  position: absolute;
+  left:auto;
+  padding: 10%;
+  height: 80%;
+  width: 30%;
   padding-top:1%;
   padding-bottom: 1%;
   padding-right: 2%;
@@ -125,5 +187,5 @@ label{
 }
 footer.footer {
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 40rem;
 }
