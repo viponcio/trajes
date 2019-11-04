@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 
@@ -48,37 +51,52 @@
         <!--</div>-->
     </div>
 
+    <div class="container box-left" >
+        <h3>Nome da pessoa vai aqui</h3>
+        <i class="fas fa-address-book fa-3x"></i><a href="/gerenciarCli"> Gerenciar Cliente.</a>
+        <br>
+        <br>
+        <i class="fas fa-user-tie fa-3x"></i><a href="/gerenciarTrajes">Gerenciar Trajes.</a>
+        <!-- <div class="row">-->
+        <!--<div class="col-xl-9 mx-auto">-->
+        <!--</div>-->
+    </div>
+
     <div class="container box">
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
         <h1>Editar cadastro de Cliente</h1>
-        <form method="POST" action="/salvarCli">
-            <label for="nomeCli">Nome:<input type="text" name="nomeCli" id="nomeCli" class="form-control" placeholder="digite o seu nome" ></label>
+        <form method="POST" >
+        <tr th:each="cliente : ${clientes}">
+            <input type="hidden" name="idCli" th:field="${cliente.idCli}">
+            <label for="nomeCli">Nome:<input type="text" name="nomeCli" id="nomeCli" class="form-control" placeholder="digite o seu nome" th:field="${cliente.nomeCli}"  ></label>
 
-            <label for="nascimentoCli">Data de Nascimento:<input type="date" name="nascimentoCli" id="nascimentoCli" class="form-control" ></label>
+            <label for="nascimentoCli">Data de Nascimento:<input type="date" name="nascimentoCli" id="nascimentoCli" class="form-control" th:field="${cliente.nascimentoCli}" ></label>
             <br>
-            <label for="sobrenomeCli">Sobrenome:<input type="text" name="sobrenomeCli" id="sobrenomeCli" class="form-control" placeholder="digite o seu sobrenome"></label>
+            <label for="sobrenomeCli">Sobrenome:<input type="text" name="sobrenomeCli" id="sobrenomeCli" class="form-control" placeholder="digite o seu sobrenome" th:field="${cliente.sobrenomeCli}"></label>
 
-            <label for="cpfCli">CPF:<input type="text" name="cpfCli" id="cpfCli" class="form-control cpf" placeholder="digite o cpf" ></label>
+            <label for="cpfCli">CPF:<input type="text" name="cpfCli" id="cpfCli" class="form-control cpf" placeholder="digite o cpf" th:field="${cliente.cpfCli}"></label>
             <br>
-            <label for="ruaCli">Rua:<input type="text" name="ruaCli" id="ruaCli" class="form-control" placeholder="digite a sua rua"></label>
+            <label for="ruaCli">Rua:<input type="text" name="ruaCli" id="ruaCli" class="form-control" placeholder="digite a sua rua" th:field="${cliente.ruaCli}"></label>
 
-            <label for="numeroCli">N°:<input type="number" name="numeroCli" id="numeroCli" class="form-control" placeholder="digite o seu n°" ></label>
+            <label for="numeroCli">N°:<input type="number" name="numeroCli" id="numeroCli" class="form-control" placeholder="digite o seu n°" th:field="${cliente.numeroCli}"></label>
             <br>
-            <label for="cepCli">Cep:<input type="text" name="cepCli" id="cepCli" class="form-control cep" placeholder="digite o seu cep"></label>
+            <label for="cepCli">Cep:<input type="text" name="cepCli" id="cepCli" class="form-control cep" placeholder="digite o seu cep" th:field="${cliente.cepCli}"></label>
 
-            <label for="bairroCli">Bairro:<input type="text" name="bairroCli" id="bairroCli" class="form-control" placeholder="digite o seu bairro" ></label>
+            <label for="bairroCli">Bairro:<input type="text" name="bairroCli" id="bairroCli" class="form-control" placeholder="digite o seu bairro" th:field="${cliente.bairroCli}"></label>
             <br>
-            <label for="cidadeCli">Cidade:<input type="text" name="cidadeCli" id="cidadeCli" class="form-control" placeholder="digite a cidade" ></label>
+            <label for="cidadeCli">Cidade:<input type="text" name="cidadeCli" id="cidadeCli" class="form-control" placeholder="digite a cidade" th:field="${cliente.cidadeCli}"></label>
 
-            <label for="estadoCli">Estado:<input type="text" name="estadoCli" id="estadoCli" class="form-control" placeholder="digite o estado"></label>
+            <label for="estadoCli">Estado:<input type="text" name="estadoCli" id="estadoCli" class="form-control" placeholder="digite o estado" th:field="${cliente.estadoCli}"></label>
             <br>
-            <label for="foneCli">Telefone:<input type="text" name="foneCli" id="foneCli" class="form-control telefone" placeholder="digite o fone" ></label>
+            <label for="foneCli">Telefone:<input type="text" name="foneCli" id="foneCli" class="form-control telefone" placeholder="digite o fone" th:field="${cliente.foneCli}"></label>
 
-            <label for="emailCli">E-mail:<input type="text" name="emailCli" id="emailCli" class="form-control" placeholder="digite o email"></label>
+            <label for="emailCli">E-mail:<input type="text" name="emailCli" id="emailCli" class="form-control" placeholder="digite o email" th:field="${cliente.emailCli}"></label>
             <br>
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <!--/*@thymesVar id="idCli" type="java"*/-->
+            <a class="btn btn-primary ml-5" th:href="${#mvc.url('CC#editarCli').arg(0, cliente.idCli).build()}" role="button" >Editar</a>
             <a class="btn btn-primary ml-5" href="/gerenciarCli" role="button">Cancelar</a>
+        </tr>
         </form>
         <!--</div>-->
     </div>

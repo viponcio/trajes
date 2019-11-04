@@ -156,6 +156,17 @@ label{
   border-radius: 30px;
 }
 
+.posicao{
+  position: absolute;
+  top:50%;
+  right:50%;
+  left:35%;
+
+  border-radius: 30px;
+  background-color:#9AA6B4;
+
+}
+
 .principal{
   position: absolute;
   top:50%;
@@ -176,7 +187,7 @@ label{
   position: absolute;
   left:auto;
   padding: 10%;
-  height: 80%;
+  height: 100%;
   width: 30%;
   padding-top:1%;
   padding-bottom: 1%;

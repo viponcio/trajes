@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 
@@ -53,11 +55,11 @@
         <!--<div class="col-xl-9 mx-auto">-->
         <h1>Cadastro de Traje</h1>
         <form method="POST" action="/">
-            <label for="codRoupaUtensilios">Sobrenome:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o código"></label>
-            <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" placeholder="digite o tamanho" ></label>
+            <label for="codRoupaUtensilios">Cód:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o código"></label>
+            <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" placeholder="digite o tamanho pode ser letra ou número" ></label>
             <br>
-            <label for="cor">Cor:<input type="date" name="cor" id="cor" class="form-control" ></label>
-
+            <label for="cor">Cor:<input type="text" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
+            <br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
             <a class="btn btn-primary ml-5" href="/gerenciarTrajes" role="button">Cancelar</a>
         </form>

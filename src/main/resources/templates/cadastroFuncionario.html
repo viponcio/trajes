@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 
@@ -41,9 +43,9 @@
         <!--<div class="col-xl-9 mx-auto">-->
         <h1>Cadastro de Funcionário</h1>
         <form method="POST" action="/cadastroFuncionario">
-            <label>Nome:<input type="text" name="nomeFunc" id="nomeFunc" class="form-control form-control-lg" placeholder="digite o seu nome" ></label>
+            <label>Nome:<input type="text" name="nomeFunc" id="nomeFunc" class="form-control" placeholder="digite o seu nome" ></label>
 
-            <label>Sobrenome:<input type="text" name="sobrenomeFunc" id="sobrenomeFunc" class="form-control form-control-lg" placeholder="digite o seu sobrenome"></label>
+            <label>Sobrenome:<input type="text" name="sobrenomeFunc" id="sobrenomeFunc" class="form-control" placeholder="digite o seu sobrenome"></label>
             <br>
             <label>CPF:<input type="text" name="cpfFunc" id="cpfFunc" class="form-control cpf" placeholder="digite o cpf" ></label>
 
