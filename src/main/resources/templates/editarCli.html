@@ -45,7 +45,16 @@
         <i class="fas fa-address-book fa-3x"></i><a href="/gerenciarCli"> Gerenciar Cliente.</a>
         <br>
         <br>
-        <i class="fas fa-user-tie fa-3x"></i><a href="/gerenciarTrajes">Gerenciar Trajes.</a>
+        <i class="fas fa-tshirt fa-3x"></i><a href="/gerenciarTrajes">Gerenciar Trajes.</a>
+        <br>
+        <br>
+        <i class="fas fa-link fa-3x"></i><a href="/gerenciarTrajes">Gerenciar Aluguel.</a>
+        <br>
+        <br>
+        <i class="fas fa-link fa-3x"></i><a href="/gerenciarTrajes">Atualizar Data de Entrega.</a>
+        <br>
+        <br>
+        <i class="fas fa-link fa-3x"></i><a href="/gerenciarTrajes">Atualizar Data de Retirada.</a>
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
         <!--</div>-->
@@ -56,7 +65,16 @@
         <i class="fas fa-address-book fa-3x"></i><a href="/gerenciarCli"> Gerenciar Cliente.</a>
         <br>
         <br>
-        <i class="fas fa-user-tie fa-3x"></i><a href="/gerenciarTrajes">Gerenciar Trajes.</a>
+        <i class="fas fa-tshirt fa-3x"></i><a href="/gerenciarTrajes">Gerenciar Trajes.</a>
+        <br>
+        <br>
+        <i class="fas fa-link fa-3x"></i><a href="/gerenciarAluguel">Gerenciar Aluguel.</a>
+        <br>
+        <br>
+        <i class="fas fa-calendar-alt fa-3x"></i><a href="/gerenciarTrajes">Atualizar Data de Entrega.</a>
+        <br>
+        <br>
+        <i class="fas fa-calendar-alt fa-3x"></i><a href="/gerenciarTrajes">Atualizar Data de Retirada.</a>
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
         <!--</div>-->
@@ -66,8 +84,9 @@
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
         <h1>Editar cadastro de Cliente</h1>
-        <form method="POST" >
-        <tr th:each="cliente : ${clientes}">
+        <form action="/editarCli" method="POST" >
+<!--            th:action="@{/students/update/{id}(id=${student.id})}"-->
+<!--            th:object="${student}"-->
             <input type="hidden" name="idCli" th:field="${cliente.idCli}">
             <label for="nomeCli">Nome:<input type="text" name="nomeCli" id="nomeCli" class="form-control" placeholder="digite o seu nome" th:field="${cliente.nomeCli}"  ></label>
 
@@ -94,9 +113,8 @@
             <label for="emailCli">E-mail:<input type="text" name="emailCli" id="emailCli" class="form-control" placeholder="digite o email" th:field="${cliente.emailCli}"></label>
             <br>
             <!--/*@thymesVar id="idCli" type="java"*/-->
-            <a class="btn btn-primary ml-5" th:href="${#mvc.url('CC#editarCli').arg(0, cliente.idCli).build()}" role="button" >Editar</a>
-            <a class="btn btn-primary ml-5" href="/gerenciarCli" role="button">Cancelar</a>
-        </tr>
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <a class="btn btn-danger ml-5" href="/gerenciarCli" role="button">Cancelar</a>
         </form>
         <!--</div>-->
     </div>

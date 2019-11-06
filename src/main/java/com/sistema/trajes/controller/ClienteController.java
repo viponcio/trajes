@@ -3,9 +3,6 @@ package com.sistema.trajes.controller;
 import com.sistema.model.Cliente;
 import com.sistema.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.Optional;
 
 @Controller//anotação
@@ -53,12 +48,17 @@ public class ClienteController {
 
     }
 
-    @RequestMapping(value="/{idCli}" ,method = RequestMethod.POST)
-    public String editarCli(@PathVariable("idCli") Long idCli, Model model){
-        Cliente cliente = clienteRepository.findById(idCli).orElseThrow(()->new IllegalArgumentException("Usuário Incorreto:"+idCli));
-        model.addAttribute("cliente",cliente);
-//        ModelAndView mv = new ModelAndView("/gerenciarCli");
-        return "gerenciarCli";
+    @RequestMapping(value="/editarCli")
+    public ModelAndView editarCli(Cliente cliente){
+        clienteRepository.save(cliente);
+        return new ModelAndView("redirect:/gerenciarCli");
+    }
+
+    @RequestMapping("excluirCli")
+    public String excluirCli(long idCli){
+        Optional<Cliente> cli = clienteRepository.findById(idCli);
+        clienteRepository.deleteById(idCli);
+        return "redirect:/gerenciarCli";
     }
 
 
