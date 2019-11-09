@@ -33,9 +33,9 @@ public class ClienteController {
 
     //BidingResults vai servir para validar apenas se o meu formulário não vai estar vazio
     @RequestMapping(value = "/salvarCli",method = RequestMethod.POST)
-    public ModelAndView salvarCliente(Cliente cliente,BindingResult bindingResult,RedirectAttributes redirectAttributes) {
+    public ModelAndView salvarCli(Cliente cliente,BindingResult bindingResult,RedirectAttributes redirectAttributes) {
         clienteRepository.save(cliente);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/gerenciarCli");
 
     }
 

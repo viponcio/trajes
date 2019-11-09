@@ -4,9 +4,8 @@ import java.io.Serializable;
 @Entity
 public class TipoRoupa implements Serializable{
     private static final long serialVersionUID=1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
+    @Id
     @Column
     private Long codTipoRoupa;
     private String descricao;

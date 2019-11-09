@@ -53,7 +53,7 @@
         <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarData">Atualizar Data de Entrega.</a>
         <br>
         <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarRetirada">Atualizar Data de Retirada.</a>
+        <i class="fas fa-calendar-alt fa-3x"></i><a href="/gerenciarTrajes">Atualizar Data de Retirada.</a>
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
         <!--</div>-->
@@ -62,34 +62,22 @@
     <div class="container box">
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
-        <h1>Cadastro de Cliente</h1>
-        <form method="POST" action="/salvarCli">
-            <label for="nomeCli">Nome:<input type="text" name="nomeCli" id="nomeCli" class="form-control" placeholder="digite o seu nome" ></label>
-
-            <label for="nascimentoCli">Data de Nascimento:<input type="date" name="nascimentoCli" id="nascimentoCli" class="form-control" ></label>
+        <h1>Atualizar Data de Entrega</h1>
+        <form method="POST" action="/">
+            <label for="codRoupaUtensilios">Nome do Locatário:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o nome"></label>
+            <label for="codRoupaUtensilios">Código do traje:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o código"></label>
             <br>
-            <label for="sobrenomeCli">Sobrenome:<input type="text" name="sobrenomeCli" id="sobrenomeCli" class="form-control" placeholder="digite o seu sobrenome"></label>
-
-            <label for="cpfCli">CPF:<input type="text" name="cpfCli" id="cpfCli" class="form-control cpf" placeholder="digite o cpf" ></label>
+            <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" placeholder="digite o tamanho" ></label>
+            <label for="cor">Cor:<input type="text" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
             <br>
-            <label for="ruaCli">Rua:<input type="text" name="ruaCli" id="ruaCli" class="form-control" placeholder="digite a sua rua"></label>
-
-            <label for="numeroCli">N°:<input type="number" name="numeroCli" id="numeroCli" class="form-control" placeholder="digite o seu n°" ></label>
+            <label for="cor">Data do Evento:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
+            <label for="cor">Data de Prova:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
             <br>
-            <label for="cepCli">Cep:<input type="text" name="cepCli" id="cepCli" class="form-control cep" placeholder="digite o seu cep"></label>
-
-            <label for="bairroCli">Bairro:<input type="text" name="bairroCli" id="bairroCli" class="form-control" placeholder="digite o seu bairro" ></label>
-            <br>
-            <label for="cidadeCli">Cidade:<input type="text" name="cidadeCli" id="cidadeCli" class="form-control" placeholder="digite a cidade" ></label>
-
-            <label for="estadoCli">Estado:<input type="text" name="estadoCli" id="estadoCli" class="form-control" placeholder="digite o estado"></label>
-            <br>
-            <label for="foneCli">Telefone:<input type="text" name="foneCli" id="foneCli" class="form-control telefone" placeholder="digite o fone" ></label>
-
-            <label for="emailCli">E-mail:<input type="text" name="emailCli" id="emailCli" class="form-control" placeholder="digite o email"></label>
+            <label for="cor">Data da Retirada:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
+            <label for="cor">Data de Entrega:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
             <br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
-            <a class="btn btn-danger ml-5" href="/gerenciarCli" role="button">Cancelar</a>
+            <a class="btn btn-danger ml-5" href="/dashboard" role="button">Cancelar</a>
         </form>
         <!--</div>-->
     </div>

@@ -6,11 +6,11 @@ import java.io.Serializable;
 public class RoupaUtensilios implements Serializable {
     private static final long serialVersionUID=1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long codRoupaUtensilios;
 
     @Column
-    private char tamanho;//deixar em char pois pode ser num ou palavra
+    private String tamanho;//deixar em char pois pode ser num ou palavra
     private float precoRoupaUtensilio;
     private String cor;
 
@@ -18,7 +18,7 @@ public class RoupaUtensilios implements Serializable {
 
     }
 
-    public RoupaUtensilios(Long codRoupaUtensilios, char tamanho, float precoRoupaUtensilio, String cor) {
+    public RoupaUtensilios(Long codRoupaUtensilios, String tamanho, float precoRoupaUtensilio, String cor) {
         this.codRoupaUtensilios = codRoupaUtensilios;
         this.tamanho = tamanho;
         this.precoRoupaUtensilio = precoRoupaUtensilio;
@@ -33,11 +33,11 @@ public class RoupaUtensilios implements Serializable {
         this.codRoupaUtensilios = codRoupaUtensilios;
     }
 
-    public char getTamanho() {
+    public String getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(char tamanho) {
+    public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
     }
 

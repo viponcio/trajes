@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://thymeleaf.org"
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
@@ -32,7 +33,7 @@
     <div class="container" style="display:flex;justify-content:center;align-items:center;">
         <a class="navbar-brand" href="/index"><b>To Dress</b></a>
         <span class="navbar-text">Sistema de Gerenciamento de Aluguel de Trajes</span>
-        <a class="btn btn-dark" href="/" role="button">Sair</a>
+        <a class="btn btn-dark" href="/index" role="button">Sair</a>
     </div>
 </nav>
 
@@ -44,35 +45,57 @@
         <i class="fas fa-address-book fa-3x"></i><a href="/gerenciarCli"> Gerenciar Cliente.</a>
         <br>
         <br>
-        <i class="fas fa-tshirt fa-3x"></i><a href="/gerenciarTrajes">Gerenciar Trajes.</a>
+        <i class="fas fa-tshirt fa-3x"></i><a href="/gerenciarRoupaUtensilios">Gerenciar Trajes.</a>
         <br>
         <br>
         <i class="fas fa-link fa-3x"></i><a href="/gerenciarAluguel">Gerenciar Aluguel.</a>
         <br>
         <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/gerenciarTrajes">Atualizar Data de Entrega.</a>
+        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarData">Atualizar Data de Entrega.</a>
         <br>
         <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/gerenciarTrajes">Atualizar Data de Retirada.</a>
+        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarRetirada">Atualizar Data de Retirada.</a>
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
         <!--</div>-->
     </div>
 
-    <div class="container box">
-        <!-- <div class="row">-->
-        <!--<div class="col-xl-9 mx-auto">-->
-        <h1>Cadastro de Traje</h1>
-        <form method="POST" action="/">
-            <label for="codRoupaUtensilios">Cód:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o código"></label>
-            <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" placeholder="digite o tamanho pode ser letra ou número" ></label>
-            <br>
-            <label for="cor">Cor:<input type="text" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
-            <br>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-            <a class="btn btn-danger ml-5" href="/gerenciarTrajes" role="button">Cancelar</a>
+    <div class="container pesquisa col-auto " >
+
+        <form action=" " method="post" >
+            <button type="submit"><i class="fas fa-search fa-1x"></i></button>
+            <label for="busca">Buscar</label>
+            <input type="search" id="busca" name="q">
+            <a class="btn btn-primary ml-5" href="/cadastrarRoupaUtensilios" role="button">Cadastrar</a>
         </form>
-        <!--</div>-->
+
+    </div>
+
+    <div class="container principal">
+        <table class="table ">
+            <thead>
+            <tr>
+                <th scope="col">Número</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Cor</th>
+                <th scope="col">Ação</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="roupaUtensilios : ${roupaUtensilios}">
+                <th scope="row" th:text="${roupaUtensilios.codRoupaUtensilios}"></th>
+                <th scope="row"></th>
+                <th scope="row" th:text="${roupaUtensilios.cor}"></th>
+                <th scope="row" ></th>
+                <td></td>
+                <!--
+                ALTERAR ESSE LINK PARA BOTÃO QUANDO A TABELA ESTIVER PRONTA
+                -->
+                <td><a class="btn btn-primary ml-5" href="/" role="button">Editar</a></td>
+                <td><a class="btn btn-primary ml-5" href="/" role="button">Excluir</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <!--</div>-->
 </header>
@@ -82,11 +105,6 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="vendor/jquery/mascaras.js"></script>
-<script src="vendor/jquery/jquery.maskedinputs.js"></script>
 </body>
 
 </html>
