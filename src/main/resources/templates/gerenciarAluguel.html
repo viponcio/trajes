@@ -64,20 +64,22 @@
         <!--<div class="col-xl-9 mx-auto">-->
         <h1>Cadastro de Aluguel</h1>
         <form method="POST" action="/">
-            <label for="codRoupaUtensilios">Nome do Locatário:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o nome"></label>
-            <label for="codRoupaUtensilios">Código do traje:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o código"></label>
-            <br>
-            <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" placeholder="digite o tamanho" ></label>
-            <label for="cor">Cor:<input type="text" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
-            <br>
-            <label for="cor">Data do Evento:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
-            <label for="cor">Data de Prova:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
-            <br>
-            <label for="cor">Data da Retirada:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
-            <label for="cor">Data de Entrega:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
-            <br>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-            <a class="btn btn-danger ml-5" href="/dashboard" role="button">Cancelar</a>
+            <label for="nomeCli">Nome do Locatário:<input type="text" name="nomeCli" id="nomeCli" class="form-control" placeholder="digite o nome"></label>
+
+            <!--no nome do locatário deve ser feita uma busca-->
+            <label for="codRoupaUtensilios">Código do traje ou utensilios:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o código" ></label>
+<!--            <br>-->
+<!--            <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" placeholder="digite o tamanho" th:field="${roupaUtensilios.tamanho}" ></label>-->
+<!--            <label for="cor">Cor:<input type="text" name="cor" id="cor" class="form-control" placeholder="digite a cor" th:field="${roupaUtensilios.cor}"></label>-->
+<!--            <br>-->
+<!--            <label for="dataEvento">Data do Evento:<input type="date" name="dataEvento" id="dataEvento" class="form-control" ></label>-->
+<!--            <label for="dataProva">Data de Prova:<input type="date" name="dataProva" id="dataProva" class="form-control" ></label>-->
+<!--            <br>-->
+<!--            <label for="dataRetirada">Data da Retirada:<input type="date" name="dataRetirada" id="dataRetirada" class="form-control" ></label>-->
+<!--            <label for="dataEntrega">Data de Entrega:<input type="date" name="dataEntrega" id="dataEntrega" class="form-control" ></label>-->
+<!--            <br>-->
+<!--            <button type="submit" class="btn btn-primary">Cadastrar</button>-->
+<!--            <a class="btn btn-danger ml-5" href="/dashboard" role="button">Cancelar</a>-->
         </form>
         <!--</div>-->
     </div>

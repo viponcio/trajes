@@ -27,6 +27,7 @@ public class ClienteController {
         ModelAndView mv = new ModelAndView("gerenciarCli");
         Iterable<Cliente> clientes = clienteRepository.findAll();//primeiro tem q buscar os clientes
         mv.addObject("clientes",clientes);
+
         return mv;
     }
 

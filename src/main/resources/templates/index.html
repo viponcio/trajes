@@ -42,11 +42,11 @@
         <!--<div class="col-xl-9 mx-auto">-->
         <h1>Login</h1>
       <!--      </div>-->
-          <form>
-            <label>E-mail:<input type="email" class="form-control" placeholder="digite o seu e-mail" /></label>
+          <form action="entrar" method="POST">
+            <label for="emailFunc">E-mail:<input type="email" name="emailFunc" id="emailFunc" class="form-control" placeholder="digite o seu e-mail" /></label>
             <br>
             <br>
-            <label>Senha:<input type="password" class="form-control" placeholder="digite a sua senha"></label>
+            <label for="senhaFunc">Senha:<input type="password" name="senhaFunc" id="senhaFunc" class="form-control" placeholder="digite a sua senha"></label>
             <br>
             <a class="btn btn-primary" href="/dashboard" role="button">Entrar</a>
             <br>

@@ -1,14 +1,20 @@
 package com.sistema.model;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 public class TipoRoupa implements Serializable{
     private static final long serialVersionUID=1L;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column
     private Long codTipoRoupa;
     private String descricao;
+    @ManyToMany(mappedBy = "TipoRoupas", cascade = CascadeType.ALL)
+
+    private List<RoupaUtensilios> roupaUtensiliosList;
+
 
     public TipoRoupa(){
 

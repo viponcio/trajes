@@ -85,8 +85,6 @@
         <!--<div class="col-xl-9 mx-auto">-->
         <h1>Editar cadastro de Cliente</h1>
         <form action="/editarCli" method="POST" >
-<!--            th:action="@{/students/update/{id}(id=${student.id})}"-->
-<!--            th:object="${student}"-->
             <input type="hidden" name="idCli" th:field="${cliente.idCli}">
             <label for="nomeCli">Nome:<input type="text" name="nomeCli" id="nomeCli" class="form-control" placeholder="digite o seu nome" th:field="${cliente.nomeCli}"  ></label>
 

@@ -1,6 +1,7 @@
 package com.sistema.model;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class RoupaUtensilios implements Serializable {
@@ -13,6 +14,10 @@ public class RoupaUtensilios implements Serializable {
     private String tamanho;//deixar em char pois pode ser num ou palavra
     private float precoRoupaUtensilio;
     private String cor;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "table_rt" , joinColumns={@JoinColumn(name = "tiporoupa_id")},
+    inverseJoinColumns={@JoinColumn(name = "roupautensilios_id")})
+    private List<TipoRoupa> TipoRoupas;
 
     public RoupaUtensilios(){
 

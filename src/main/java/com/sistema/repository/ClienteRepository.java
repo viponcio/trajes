@@ -9,7 +9,7 @@ import java.util.List;
 //vai fazer o crud
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-    List<Cliente> findByNomeCli(String nomeCli);
+    Cliente findByNomeCli(String nomeCli);
 
 
 }
