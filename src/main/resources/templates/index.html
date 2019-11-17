@@ -42,13 +42,15 @@
         <!--<div class="col-xl-9 mx-auto">-->
         <h1>Login</h1>
       <!--      </div>-->
-          <form action="entrar" method="POST">
+          <form action="@{/login}" method="POST">
             <label for="emailFunc">E-mail:<input type="email" name="emailFunc" id="emailFunc" class="form-control" placeholder="digite o seu e-mail" /></label>
             <br>
             <br>
             <label for="senhaFunc">Senha:<input type="password" name="senhaFunc" id="senhaFunc" class="form-control" placeholder="digite a sua senha"></label>
             <br>
+
             <a class="btn btn-primary" href="/dashboard" role="button">Entrar</a>
+
             <br>
 
           </form>
@@ -64,6 +66,9 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })</script>
 
 </body>
 

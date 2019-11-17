@@ -6,17 +6,17 @@ import java.util.List;
 @Entity
 public class RoupaUtensilios implements Serializable {
     private static final long serialVersionUID=1L;
-    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id//tirei o generatedvalue pois sou eu q vou digitar  o cod
     private Long codRoupaUtensilios;
 
     @Column
     private String tamanho;//deixar em char pois pode ser num ou palavra
     private float precoRoupaUtensilio;
     private String cor;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "table_rt" , joinColumns={@JoinColumn(name = "tiporoupa_id")},
-    inverseJoinColumns={@JoinColumn(name = "roupautensilios_id")})
+            inverseJoinColumns={@JoinColumn(name = "roupautensilios_id")})
     private List<TipoRoupa> TipoRoupas;
 
     public RoupaUtensilios(){
@@ -61,4 +61,5 @@ public class RoupaUtensilios implements Serializable {
     public void setCor(String cor) {
         this.cor = cor;
     }
+
 }

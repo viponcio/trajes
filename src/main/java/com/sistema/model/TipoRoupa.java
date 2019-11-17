@@ -1,6 +1,9 @@
 package com.sistema.model;
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,10 +18,11 @@ public class TipoRoupa implements Serializable{
 
     private List<RoupaUtensilios> roupaUtensiliosList;
 
-
     public TipoRoupa(){
 
     }
+
+
 
     public TipoRoupa(Long codTipoRoupa, String descricao) {
         this.codTipoRoupa = codTipoRoupa;
@@ -39,5 +43,13 @@ public class TipoRoupa implements Serializable{
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<RoupaUtensilios> getRoupaUtensiliosList() {
+        return roupaUtensiliosList;
+    }
+
+    public void setRoupaUtensiliosList(List<RoupaUtensilios> roupaUtensiliosList) {
+        this.roupaUtensiliosList = roupaUtensiliosList;
     }
 }

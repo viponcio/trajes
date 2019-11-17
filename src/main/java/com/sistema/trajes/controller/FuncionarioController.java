@@ -41,9 +41,9 @@ public class FuncionarioController extends HttpServlet {
     //vou alterar o value do request mapping,trocar cadastrarFuncionario por cadastroFuncionario e o nome do metodo por salvar
     @RequestMapping(value="/cadastroFuncionario" , method = RequestMethod.POST)//é por aqui q o browser vai achar localhost:8080/cadastrarFuncionario
     public String salvar(@Valid Funcionario funcionario, BindingResult result, RedirectAttributes attributes ){
-//        funcionarioRepository.save(funcionario);
-//        return("redirect:/dashboard");
-//    }
+        funcionarioRepository.save(funcionario);
+        return("redirect:/dashboard");
+    }
 //
 //    @RequestMapping(value="/entrar" , method = RequestMethod.POST)
 //    public String autenticar(Funcionario funcionario, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -62,7 +62,7 @@ public class FuncionarioController extends HttpServlet {
 //        }
 //        return 0;
 
-        return "cadastroFuncionario";
-    }
+//        return "cadastroFuncionario";
+//    }
 
 }
