@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
         xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 
   <meta charset="utf-8">
@@ -29,7 +30,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light backgroundnav static-top">
     <div class="container" style="display:flex;justify-content:center;align-items:center;">
-      <a class="navbar-brand" href="/index"><b>To Dress</b></a>
+      <a class="navbar-brand" href="/login"><b>To Dress</b></a>
       <span class="navbar-text">Sistema de Gerenciamento de Aluguel de Trajes</span>
     </div>
   </nav>
@@ -38,18 +39,22 @@
   <header class="masthead text-dark text-center">
    <!-- <div class="overlay "></div>--> 
     <div class="container login">
-     <!-- <div class="row">-->
-        <!--<div class="col-xl-9 mx-auto">-->
+      <div th:if="${param.error}">
+        <div class="alert alert-danger">Usuario/senha invalidos!</div>
+      </div>
+      <div th:if="${param.logout}">
+        <div class="alert alert-info">Usuário desconectado!</div>
+      </div>
         <h1>Login</h1>
       <!--      </div>-->
-          <form action="@{/login}" method="POST">
-            <label for="emailFunc">E-mail:<input type="email" name="emailFunc" id="emailFunc" class="form-control" placeholder="digite o seu e-mail" /></label>
+          <form  th:action="@{/login}" method="POST" sec:authorize="hasRole('ADMIN')">
+            <label for="username">E-mail:<input type="email" name="username" id="username" class="form-control" placeholder="digite o seu e-mail" /></label>
             <br>
             <br>
-            <label for="senhaFunc">Senha:<input type="password" name="senhaFunc" id="senhaFunc" class="form-control" placeholder="digite a sua senha"></label>
+            <label for="password">Senha:<input type="password" name="password" id="password" class="form-control" placeholder="digite a sua senha"></label>
             <br>
 
-            <a class="btn btn-primary" href="/dashboard" role="button">Entrar</a>
+            <button type="submit" class="btn btn-primary">Entrar</button>
 
             <br>
 

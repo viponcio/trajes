@@ -32,7 +32,9 @@
     <div class="container" style="display:flex;justify-content:center;align-items:center;">
         <a class="navbar-brand" href="/index"><b>To Dress</b></a>
         <span class="navbar-text">Sistema de Gerenciamento de Aluguel de Trajes</span>
-        <a class="btn btn-dark" href="/" role="button">Sair</a>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-dark" type="submit">Sair</button>
+        </form>
     </div>
 </nav>
 

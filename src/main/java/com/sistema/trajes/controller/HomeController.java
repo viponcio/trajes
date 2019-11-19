@@ -3,11 +3,11 @@ package com.sistema.trajes.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
-public class DashboardController {
+public class HomeController {
 
-    @RequestMapping("/dashboard")
-    public String dashboard(){
-        return "dashboard";
+    @RequestMapping("/home")
+    public String home(){
+        return "home";
     }
 
 }

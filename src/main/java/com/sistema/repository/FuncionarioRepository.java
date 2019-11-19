@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 //vai fazer o crud
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario ,Long> {
-    Funcionario findByEmailFunc(String emailFunc);
+//    Funcionario findByEmailFunc(String emailFunc);
+    Funcionario findByUsername(String username);
 }

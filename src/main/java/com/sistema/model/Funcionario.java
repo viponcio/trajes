@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 @Entity//vira um entidade do banco
 
@@ -18,8 +19,8 @@ public class Funcionario implements Serializable, UserDetails {//
     @Column
     private String nomeFunc;
     private String sobrenomeFunc;
-    private String emailFunc;
-    private String senhaFunc;
+    private String username;
+    private String password;
     private String foneFunc;
     private String ruaFunc;
     private String cepFunc;
@@ -31,27 +32,37 @@ public class Funcionario implements Serializable, UserDetails {//
     private String estadoFunc;
     private String cidadeFunc;
 
-    public Funcionario(){
+    @ManyToMany
+    @JoinTable(name="funcionario_roles",joinColumns = @JoinColumn(name="funcionario_id",referencedColumnName = "idFunc"),
+    inverseJoinColumns = @JoinColumn(name="role_id",referencedColumnName = "nomeRole"))
 
-    }
 
-    public Funcionario(Long idFunc, String nomeFunc, String sobrenomeFunc, String emailFunc, String senhaFunc, String foneFunc, String ruaFunc, String cepFunc, String bairroFunc, int numeroFunc, String generoFunc, String cpfFunc, String nascimentoFunc, String estadoFunc, String cidadeFunc) {
-        this.idFunc = idFunc;
-        this.nomeFunc = nomeFunc;
-        this.sobrenomeFunc = sobrenomeFunc;
-        this.emailFunc = emailFunc;
-        this.senhaFunc = senhaFunc;
-        this.foneFunc = foneFunc;
-        this.ruaFunc = ruaFunc;
-        this.cepFunc = cepFunc;
-        this.bairroFunc = bairroFunc;
-        this.numeroFunc = numeroFunc;
-        this.generoFunc = generoFunc;
-        this.cpfFunc = cpfFunc;
-        this.nascimentoFunc = nascimentoFunc;
-        this.estadoFunc = estadoFunc;
-        this.cidadeFunc = cidadeFunc;
-    }
+//    @ManyToMany
+//    @JoinTable(
+//            name = "usuarios_roles",
+//            joinColumns = @JoinColumn(
+//                    name = "usuario_id", referencedColumnName = "login"),
+//            inverseJoinColumns = @JoinColumn(
+//                    name = "role_id", referencedColumnName = "nomeRole"))
+    private List<Role> roles;
+
+//    public Funcionario(Long idFunc, String nomeFunc, String sobrenomeFunc, String username, String password, String foneFunc, String ruaFunc, String cepFunc, String bairroFunc, int numeroFunc, String generoFunc, String cpfFunc, String nascimentoFunc, String estadoFunc, String cidadeFunc) {
+//        this.idFunc = idFunc;
+//        this.nomeFunc = nomeFunc;
+//        this.sobrenomeFunc = sobrenomeFunc;
+//        this.username = username;
+//        this.password = password;
+//        this.foneFunc = foneFunc;
+//        this.ruaFunc = ruaFunc;
+//        this.cepFunc = cepFunc;
+//        this.bairroFunc = bairroFunc;
+//        this.numeroFunc = numeroFunc;
+//        this.generoFunc = generoFunc;
+//        this.cpfFunc = cpfFunc;
+//        this.nascimentoFunc = nascimentoFunc;
+//        this.estadoFunc = estadoFunc;
+//        this.cidadeFunc = cidadeFunc;
+//    }
 
     public Long getIdFunc() {
         return idFunc;
@@ -77,20 +88,20 @@ public class Funcionario implements Serializable, UserDetails {//
         this.sobrenomeFunc = sobrenomeFunc;
     }
 
-    public String getEmailFunc() {
-        return emailFunc;
+//    public String getUsername() {
+//        return username;
+//    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setEmailFunc(String emailFunc) {
-        this.emailFunc = emailFunc;
-    }
+//    public String getpassword() {
+//        return password;
+//    }
 
-    public String getSenhaFunc() {
-        return senhaFunc;
-    }
-
-    public void setSenhaFunc(String senhaFunc) {
-        this.senhaFunc = senhaFunc;
+    public void setpassword(String password) {
+        this.password = password;
     }
 
     public String getFoneFunc() {
@@ -173,19 +184,27 @@ public class Funcionario implements Serializable, UserDetails {//
         this.cidadeFunc = cidadeFunc;
     }
 
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return this.roles;
     }
 
     @Override
     public String getPassword() {
-        return this.senhaFunc;
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return this.emailFunc;//retorna o email pois esse é o campo que vai ser pedido no login
+        return this.username;//retorna o email pois esse é o campo que vai ser pedido no login
     }
 
     @Override
@@ -207,4 +226,7 @@ public class Funcionario implements Serializable, UserDetails {//
     public boolean isEnabled() {
         return true;
     }
+
+
+
 }

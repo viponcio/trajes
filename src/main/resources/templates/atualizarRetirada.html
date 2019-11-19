@@ -33,10 +33,9 @@
         <a class="navbar-brand" href="/index"><b>To Dress</b></a>
         <span class="navbar-text">Sistema de Gerenciamento de Aluguel de Trajes</span>
         <form method="post" th:action="@{/logout}">
-            <button type="submit" class="btn btn-dark">
-                <span class="glyphicon glyphicon-log-out"></span>
-                Sair
-            </button>
+            <form th:action="@{/logout}" method="post">
+                <button class="btn btn-dark" type="submit">Sair</button>
+            </form>
         </form>
     </div>
 </nav>
@@ -82,7 +81,7 @@
             <label for="cor">Data de Entrega:<input type="date" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
             <br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
-            <a class="btn btn-danger ml-5" href="/dashboard" role="button">Cancelar</a>
+            <a class="btn btn-danger ml-5" href="/home" role="button">Cancelar</a>
         </form>
         <!--</div>-->
     </div>
