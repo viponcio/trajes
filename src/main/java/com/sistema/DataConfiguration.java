@@ -11,8 +11,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.session.web.context.AbstractHttpSessionApplicationInitializer;
@@ -21,6 +23,7 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
@@ -87,5 +90,13 @@ public class DataConfiguration extends AbstractHttpSessionApplicationInitializer
         adapter.setDatabasePlatform("org.hibernate.dialect.MySQLDialect");
         adapter.setPrepareConnection(true);
         return adapter;//retorna o vendorAdapter
+    }
+
+    @Bean
+    public JpaTransactionManager transactionManager(EntityManagerFactory factory) {
+        JpaTransactionManager tx = new JpaTransactionManager();
+        tx.setEntityManagerFactory(factory);
+        tx.setJpaDialect(new HibernateJpaDialect());
+        return tx;
     }
 }

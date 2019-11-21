@@ -194,6 +194,10 @@ label{
   border-radius: 30px;
 }
 
+.letra{
+  font-weight: 1000;
+}
+
 .box-left{
   position: absolute;
   left:auto;

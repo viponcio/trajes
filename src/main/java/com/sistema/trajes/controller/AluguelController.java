@@ -6,11 +6,19 @@ import com.sistema.repository.AluguelRepository;
 import com.sistema.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.List;
+
 @Controller
 public class AluguelController {
+
+
 
     @Autowired
     AluguelRepository aluguelRepository;
@@ -22,7 +30,7 @@ public class AluguelController {
 
 
         ModelAndView mv = new ModelAndView("gerenciarAluguel");
-        Cliente cliente1 = clienteRepository.findByNomeCli(nomeCli);
+//        Cliente cliente1 = clienteRepository.findByNomeCli(nomeCli);
 //        System.out.println(""+cliente1.getNomeCli());
         return mv;
     }
@@ -36,4 +44,6 @@ public class AluguelController {
     public String atualizarRetirada(){
         return ("atualizarRetirada");
     }
+
+
 }

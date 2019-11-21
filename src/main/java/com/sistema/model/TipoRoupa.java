@@ -14,9 +14,12 @@ public class TipoRoupa implements Serializable{
     @Column
     private Long codTipoRoupa;
     private String descricao;
-    @ManyToMany(mappedBy = "TipoRoupas", cascade = CascadeType.ALL)
 
-    private List<RoupaUtensilios> roupaUtensiliosList;
+    //one to one
+//    @ManyToMany(mappedBy = "TipoRoupas", cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name="codTipoRoupa")
+//    private List<RoupaUtensilios> roupaUtensiliosList;
 
     public TipoRoupa(){
 
@@ -45,11 +48,11 @@ public class TipoRoupa implements Serializable{
         this.descricao = descricao;
     }
 
-    public List<RoupaUtensilios> getRoupaUtensiliosList() {
-        return roupaUtensiliosList;
-    }
-
-    public void setRoupaUtensiliosList(List<RoupaUtensilios> roupaUtensiliosList) {
-        this.roupaUtensiliosList = roupaUtensiliosList;
-    }
+//    public List<RoupaUtensilios> getRoupaUtensiliosList() {
+//        return roupaUtensiliosList;
+//    }
+//
+//    public void setRoupaUtensiliosList(List<RoupaUtensilios> roupaUtensiliosList) {
+//        this.roupaUtensiliosList = roupaUtensiliosList;
+//    }
 }

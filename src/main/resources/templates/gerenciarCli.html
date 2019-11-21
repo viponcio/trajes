@@ -64,17 +64,24 @@
 
     <div class="container pesquisa col-auto " >
 
-        <form action=" " method="post" >
+        <form th:action="@{/nomeCli}"  method="GET" >
 
-            <label for="busca">Buscar</label>
-            <input type="search" id="busca" name="q">
+
+
+            <label for="nomeCli">Buscar</label>
+            <input type="text" id="nomeCli" name="nomeCli">
             <button type="submit"><i class="fas fa-search fa-1x"></i></button>
+
             <a class="btn btn-primary ml-5" href="/cadastrarCli" role="button">Cadastrar</a>
+
         </form>
 
     </div>
 
     <div class="card posicao" style="width: 50%;">
+        <div class="panel-heading letra">
+            <span th:text="${#strings.isEmpty(message)} ? '' : ${message}"><b></b></span>
+        </div>
         <div class="card-body">
             <table class="table">
                 <thead>

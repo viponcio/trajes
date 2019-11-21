@@ -13,11 +13,13 @@ public class RoupaUtensilios implements Serializable {
     private String tamanho;//deixar em char pois pode ser num ou palavra
     private float precoRoupaUtensilio;
     private String cor;
+    //OnetoMany
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "table_rt" , joinColumns={@JoinColumn(name = "tiporoupa_id")},
+//            inverseJoinColumns={@JoinColumn(name = "roupautensilios_id")})
+//    @OneToMany(mappedBy = "RoupaUtensilios",orphanRemoval = true)
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "table_rt" , joinColumns={@JoinColumn(name = "tiporoupa_id")},
-            inverseJoinColumns={@JoinColumn(name = "roupautensilios_id")})
-    private List<TipoRoupa> TipoRoupas;
+//    private List<TipoRoupa> TipoRoupas;
 
     public RoupaUtensilios(){
 
