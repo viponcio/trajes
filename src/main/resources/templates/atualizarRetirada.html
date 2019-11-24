@@ -30,12 +30,10 @@
 <!-- Navigation -->
 <nav class="navbar navbar-light backgroundnav static-top">
     <div class="container" style="display:flex;justify-content:center;align-items:center;">
-        <a class="navbar-brand" href="/index"><b>To Dress</b></a>
+        <a class="navbar-brand" href="/home"><b>To Dress</b></a>
         <span class="navbar-text">Sistema de Gerenciamento de Aluguel de Trajes</span>
-        <form method="post" th:action="@{/logout}">
-            <form th:action="@{/logout}" method="post">
-                <button class="btn btn-dark" type="submit">Sair</button>
-            </form>
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-dark" type="submit">Sair</button>
         </form>
     </div>
 </nav>

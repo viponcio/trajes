@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class TipoRoupa implements Serializable{
     private static final long serialVersionUID=1L;
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column
     private Long codTipoRoupa;

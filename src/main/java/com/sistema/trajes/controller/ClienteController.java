@@ -80,9 +80,8 @@ public class ClienteController {
 
     @GetMapping("/nomeCli")
     public ModelAndView acharNome(@RequestParam("nomeCli") String nomeCli, ModelMap model){//lista o meu cliente encontrado pelo nome
-        if(nomeCli == null){
+        if(nomeCli.length() == 0){
             System.out.println("entrou");
-
             return new ModelAndView("redirect:/gerenciarCli");
 
         }
@@ -93,14 +92,6 @@ public class ClienteController {
 
     }
 
-//    @RequestMapping(value = "listarNome" , method = RequestMethod.POST)
-//    public ModelAndView listarNome(@RequestParam("nomeCli") String nomeCli,Model model){
-//        ModelAndView mv = new ModelAndView("acharNome");
-//        Optional<Cliente> cliente = clienteRepository.findByNomeCli("nomeCli");//primeiro tem q buscar os clientes
-//        mv.addObject("cliente",cliente);
-//
-//        return mv;
-//    }
 
 
 }
