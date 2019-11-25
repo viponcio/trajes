@@ -7,7 +7,7 @@ import java.util.List;
 public class RoupaUtensilios implements Serializable {
     private static final long serialVersionUID=1L;
     @Id//tirei o generatedvalue pois sou eu q vou digitar  o cod
-    private Long codRoupaUtensilios;
+    private long codRoupaUtensilios;
 
     @Column
     private String tamanho;//deixar em char pois pode ser num ou palavra
@@ -25,18 +25,18 @@ public class RoupaUtensilios implements Serializable {
 
     }
 
-    public RoupaUtensilios(Long codRoupaUtensilios, String tamanho, float precoRoupaUtensilio, String cor) {
+    public RoupaUtensilios(long codRoupaUtensilios, String tamanho, float precoRoupaUtensilio, String cor) {
         this.codRoupaUtensilios = codRoupaUtensilios;
         this.tamanho = tamanho;
         this.precoRoupaUtensilio = precoRoupaUtensilio;
         this.cor = cor;
     }
 
-    public Long getCodRoupaUtensilios() {
+    public long getCodRoupaUtensilios() {
         return codRoupaUtensilios;
     }
 
-    public void setCodRoupaUtensilios(Long codRoupaUtensilios) {
+    public void setCodRoupaUtensilios(long codRoupaUtensilios) {
         this.codRoupaUtensilios = codRoupaUtensilios;
     }
 

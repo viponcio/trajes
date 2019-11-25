@@ -63,11 +63,19 @@ public class RoupaUtensiliosController {
     }
 
     @RequestMapping(value = "/buscarRoupaUtensilios" , method = RequestMethod.GET)
-    public ModelAndView buscarRoupaUtensilios(@RequestParam("codRoupaUtensilios") Long codRoupaUtensilios , Model model){
-        ModelAndView mv = new ModelAndView("gerenciarAluguel");
+    public ModelAndView buscarRoupaUtensilios(@RequestParam("codRoupaUtensilios") Long codRoupaUtensilios,@RequestParam("codTipoRoupa") Long codTipoRoupa, Model model){
+        System.out.println("passou aqui");
+        System.out.println("cod:"+codRoupaUtensilios);
+        ModelAndView mv = new ModelAndView("editarRoupaUtensilios");
         Optional<RoupaUtensilios> roupaU = this.roupaUtensiliosRepository.findById(codRoupaUtensilios);
         mv.addObject("roupaU",roupaU);
         return mv;
+    }
+
+    @RequestMapping(value="/editarRoupaUtensilios")
+    public ModelAndView editarRoupaUtensilios(RoupaUtensilios roupaUtensilios){
+        roupaUtensiliosRepository.save(roupaUtensilios);
+        return new ModelAndView("redirect:/gerenciarRoupaUtensilios");
     }
 
     @GetMapping("/cor")

@@ -76,6 +76,7 @@
 
     <div class="card posicao" style="width: 50%;">
         <div class="panel-heading letra">
+            <h3>Gerenciar Roupa ou Utensílio</h3>
             <span th:text="${#strings.isEmpty(message)} ? '' : ${message}"><b></b></span>
         </div>
         <div class="card-body">
@@ -91,9 +92,9 @@
             <tbody>
                 <tr th:each="roupaU: ${roupaUtensilios}">
                     <th th:text="${roupaU.codRoupaUtensilios}"></th>
-                    <th scope="row" th:text="${roupaU.cor}"></th>
-                    <td><a class="btn btn-primary ml-5" th:href="${#mvc.url('RUC#excluirRoupaUtensilios').arg(0,roupaU.codRoupaUtensilios ).build()}" role="button">Excluir</a></td>
-<!--                        <a class="btn btn-primary ml-5" th:href="${#mvc.url('RUC#buscarRoupaUtensilios').arg(0,roupaU.codRoupaUtensilios ).build()}" role="button">Excluir</a></td>-->
+                    <td scope="row" th:text="${roupaU.cor}"></td>
+                    <td><a class="btn btn-primary ml-5" th:href="${#mvc.url('RUC#buscarRoupaUtensilios').arg(0,roupaU.codRoupaUtensilios ).build()}" role="button">Editar</a>
+                    <a class="btn btn-primary ml-5" th:href="${#mvc.url('RUC#excluirRoupaUtensilios').arg(0,roupaU.codRoupaUtensilios ).build()}" role="button">Excluir</a></td>
                 </tr>
                 <tr th:each="tipoRoupa: ${tipoRoupa}">
                     <th th:text="${tipoRoupa.descricao}"></th>

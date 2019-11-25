@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://thymeleaf.org"
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
@@ -52,38 +53,37 @@
         <i class="fas fa-link fa-3x"></i><a href="/gerenciarAluguel">Gerenciar Aluguel.</a>
         <br>
         <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarData">Atualizar Data de Entrega.</a>
+        <i class="fas fa-link fa-3x"></i><a href="/atualizarData">Atualizar Data de Entrega.</a>
         <br>
         <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarRetirada">Atualizar Data de Retirada.</a>
+        <i class="fas fa-link fa-3x"></i><a href="/atualizarRetirada">Atualizar Data de Retirada.</a>
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
         <!--</div>-->
     </div>
 
-    <div class="container pesquisa col-auto " >
+    <div class="container box">
+        <!-- <div class="row">-->
+        <!--<div class="col-xl-9 mx-auto">-->
+        <h1>Editar Roupa ou Utensílio</h1>
+        <form action="/editarRoupaUtensilios" method="POST" >
+            <label for="codRoupaUtensilios">Código:<input type="number" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" th:field="${roupaU.codRoupaUtensilios}"></label>
 
-        <form th:action="@{/nomeCli}"  method="GET" >
+            <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" th:field="${roupaU.tamanho}" ></label>
+            <br>
+            <label for="cor">Cor:<input type="text" name="cor" id="cor" class="form-control" th:field="${roupaU.cor}"></label>
 
-            <label for="nomeCli">Buscar</label>
-            <input type="text" id="nomeCli" name="nomeCli">
-            <button type="submit"><i class="fas fa-search fa-1x"></i></button>
-            <a class="btn btn-primary ml-5" href="/cadastrarCli" role="button">Cadastrar</a>
+            <label for="precoRoupaUtensilio">Preço:<input type="text" name="precoRoupaUtensilio" id="precoRoupaUtensilio" class="form-control" th:field="${roupaU.precoRoupaUtensilio}"></label>
+            <br>
+<!--            <label for="codTipoRoupa">Código do tipo da roupa:<input type="number" name="codTipoRoupa" id="codTipoRoupa" class="form-control" th:field="${roupaU}"></label>-->
 
+<!--            <label for="descricao">Descrição:<input type="text" name="descricao" id="descricao" class="form-control" th:field="${cliente.numeroCli}"></label>-->
+            <br>
+            <!--/*@thymesVar id="idCli" type="java"*/-->
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <a class="btn btn-danger ml-5" href="/gerenciarRoupaUtensilios" role="button">Cancelar</a>
         </form>
-
     </div>
-
-    <div class="card posicao" style="width: 50%;">
-        <div class="panel-heading letra">
-            <h3>Gerenciar Aluguel</h3>
-            <span th:text="${#strings.isEmpty(message)} ? '' : ${message}"><b></b></span>
-        </div>
-        <div class="card-body">
-
-        </div>
-    </div>
-    <!--</div>-->
 </header>
 
 
