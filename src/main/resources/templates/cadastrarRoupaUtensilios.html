@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -40,31 +40,53 @@
 
 <!-- Masthead -->
 <header class="masthead text-dark text-center">
-    <!-- <div class="overlay "></div>-->
     <div class="container box-left" >
-        <h3>Nome da pessoa vai aqui</h3>
-        <i class="fas fa-address-book fa-3x"></i><a href="/gerenciarCli"> Gerenciar Cliente.</a>
-        <br>
-        <br>
-        <i class="fas fa-tshirt fa-3x"></i><a href="/gerenciarRoupaUtensilios">Gerenciar Trajes.</a>
-        <br>
-        <br>
-        <i class="fas fa-link fa-3x"></i><a href="/gerenciarAluguel">Gerenciar Aluguel.</a>
-        <br>
-        <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarData">Atualizar Data de Entrega.</a>
-        <br>
-        <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarRetirada">Atualizar Data de Retirada.</a>
-        <!-- <div class="row">-->
-        <!--<div class="col-xl-9 mx-auto">-->
-        <!--</div>-->
-    </div>
+        <div class="page-header">
 
+        </div>
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-address-book fa-3x float-left "></i></div>
+            <div class="col-9 text-left">    <a href="/gerenciarCli" class="text-left">Gerenciar Cliente.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-tshirt fa-3x float-left"></i></div>
+            <div class="col-9 text-left">  <a href="/gerenciarRoupaUtensilios" class="text-left">Gerenciar Trajes.</a></div>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-3"><i class="fas fa-link fa-3x float-left"></i></div>
+            <div class="col-9 text-left"><a href="/gerenciarAluguel" class="tamfonte text-left">Gerenciar Aluguel.</a></div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-3"><i class="fas fa-calendar-alt fa-3x float-left"></i></div>
+            <div class="col-9 text-left"> <a href="/atualizarData" class="tamfonte">Atualizar Data de Entrega.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-calendar-alt fa-3x float-left"></i></div>
+            <div class="col-9 text-left">    <a href="/atualizarRetirada" class="tamfonte">Atualizar Data de Retirada.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+    </div>
+    <h3 class="text-center" >Cadastro de Roupa ou Utensílio</h3>
     <div class="container box">
-        <!-- <div class="row">-->
-        <!--<div class="col-xl-9 mx-auto">-->
-        <h1>Cadastro de Traje</h1>
+
         <form method="post" action="/salvarRoupaUtensilios">
             <label for="codRoupaUtensilios">Código:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o código"></label>
             <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" placeholder="digite o tamanho pode ser letra ou número" ></label>
@@ -72,8 +94,23 @@
             <label for="cor">Cor:<input type="text" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
             <label for="precoRoupaUtensilio">Preço:<input type="text" name="precoRoupaUtensilio" id="precoRoupaUtensilio" class="form-control" placeholder="digite o preço" ></label>
             <br>
-            <label for="codTipoRoupa">Código:<input type="text" name="codTipoRoupa" id="codTipoRoupa" class="form-control" placeholder="digite a descrição" ></label>
-            <label for="descricao">Descrição:<input type="text" name="descricao" id="descricao" class="form-control" placeholder="digite a descrição" ></label>
+
+            <div class="row">
+<!--                fazer leitura-->
+                <label>Tipo de Roupa:
+                <div class="col-5"><select  th:field="*{codRoupaUtensilios}" class="custom-select form-control" id="inputGroupSelect01">
+                    <option value="">Selecione a Roupa ou Utensílio</option>
+                    <option th:each="tipoRoupa : ${tipoRoupas}" th:value="$tipoRoupa.descricao"></option>
+                </select>
+                </div>
+                </label>
+            </div>
+
+<!--            <select id="pais" th:field="*{pais}">-->
+<!--                <option value="">Selecione o país</option>-->
+<!--                <option th:each="pais : ${paises}" th:value="${pais.id}" th:text="${pais.descricao}" selected="selected"></option>-->
+<!--            </select>-->
+
             <br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
             <a class="btn btn-danger ml-5" href="/gerenciarRoupaUtensilios" role="button">Cancelar</a>

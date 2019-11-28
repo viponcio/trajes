@@ -6,6 +6,7 @@ import com.sistema.model.RoupaUtensilios;
 import com.sistema.model.TipoRoupa;
 import com.sistema.repository.RoupaUtensiliosRepository;
 import com.sistema.repository.TipoRoupaRepository;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,9 +51,11 @@ public class RoupaUtensiliosController {
     }
 
     @RequestMapping("/cadastrarRoupaUtensilios")
-    public String cadastrarRoupaUtensilios(){
-
-        return "cadastrarRoupaUtensilios";
+    public ModelAndView cadastrarRoupaUtensilios(){
+        ModelAndView mv = new ModelAndView("cadastrarRoupaUtensilios");
+        List<RoupaUtensilios> tipoRoupa = roupaUtensiliosRepository.findAll();
+        mv.addObject("tipoRoupa",tipoRoupa);
+        return mv;
     }
 
     @RequestMapping(value="/salvarRoupaUtensilios", method = RequestMethod.POST)
@@ -64,8 +67,8 @@ public class RoupaUtensiliosController {
 
     @RequestMapping(value = "/buscarRoupaUtensilios" , method = RequestMethod.GET)
     public ModelAndView buscarRoupaUtensilios(@RequestParam("codRoupaUtensilios") Long codRoupaUtensilios,@RequestParam("codTipoRoupa") Long codTipoRoupa, Model model){
-        System.out.println("passou aqui");
         System.out.println("cod:"+codRoupaUtensilios);
+        System.out.println("");
         ModelAndView mv = new ModelAndView("editarRoupaUtensilios");
         Optional<RoupaUtensilios> roupaU = this.roupaUtensiliosRepository.findById(codRoupaUtensilios);
         mv.addObject("roupaU",roupaU);

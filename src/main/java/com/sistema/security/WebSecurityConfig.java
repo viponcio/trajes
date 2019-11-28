@@ -26,7 +26,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //csrf significa cross-site request forgery para evitar falsificação de request
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().authorizeRequests()
-//                .antMatchers(HttpMethod.GET, "/cadastrarCli").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/cadastrarFuncionario").permitAll()
                 .anyRequest().authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/home").permitAll()
                 .and().logout().permitAll()//apenas a pág index do meu sistema não precisa de autenticação

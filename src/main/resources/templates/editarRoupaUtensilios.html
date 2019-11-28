@@ -41,31 +41,55 @@
 
 <!-- Masthead -->
 <header class="masthead text-dark text-center">
-    <!-- <div class="overlay "></div>-->
+    <h3 class="text-center">Editar Roupa ou Utensílio</h3>
     <div class="container box-left" >
-        <h3>Nome da pessoa vai aqui</h3>
-        <i class="fas fa-address-book fa-3x"></i><a href="/gerenciarCli"> Gerenciar Cliente.</a>
-        <br>
-        <br>
-        <i class="fas fa-tshirt fa-3x"></i><a href="/gerenciarRoupaUtensilios">Gerenciar Trajes.</a>
-        <br>
-        <br>
-        <i class="fas fa-link fa-3x"></i><a href="/gerenciarAluguel">Gerenciar Aluguel.</a>
-        <br>
-        <br>
-        <i class="fas fa-link fa-3x"></i><a href="/atualizarData">Atualizar Data de Entrega.</a>
-        <br>
-        <br>
-        <i class="fas fa-link fa-3x"></i><a href="/atualizarRetirada">Atualizar Data de Retirada.</a>
-        <!-- <div class="row">-->
-        <!--<div class="col-xl-9 mx-auto">-->
-        <!--</div>-->
-    </div>
+        <div class="page-header">
+            <h1>Bem vindo(a), <span sec:authentication="name"></span>!</h1>
+        </div>
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-address-book fa-3x float-left "></i></div>
+            <div class="col-9 text-left">    <a href="/gerenciarCli" class="text-left">Gerenciar Cliente.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
 
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-tshirt fa-3x float-left"></i></div>
+            <div class="col-9 text-left">  <a href="/gerenciarRoupaUtensilios" class="text-left">Gerenciar Trajes.</a></div>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-3"><i class="fas fa-link fa-3x float-left"></i></div>
+            <div class="col-9 text-left"><a href="/gerenciarAluguel" class="tamfonte text-left">Gerenciar Aluguel.</a></div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-3"><i class="fas fa-calendar-alt fa-3x float-left"></i></div>
+            <div class="col-9 text-left"> <a href="/atualizarData" class="tamfonte">Atualizar Data de Entrega.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-calendar-alt fa-3x float-left"></i></div>
+            <div class="col-9 text-left">    <a href="/atualizarRetirada" class="tamfonte">Atualizar Data de Retirada.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+    </div>
     <div class="container box">
         <!-- <div class="row">-->
         <!--<div class="col-xl-9 mx-auto">-->
-        <h1>Editar Roupa ou Utensílio</h1>
+
         <form action="/editarRoupaUtensilios" method="POST" >
             <label for="codRoupaUtensilios">Código:<input type="number" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" th:field="${roupaU.codRoupaUtensilios}"></label>
 
@@ -76,8 +100,17 @@
             <label for="precoRoupaUtensilio">Preço:<input type="text" name="precoRoupaUtensilio" id="precoRoupaUtensilio" class="form-control" th:field="${roupaU.precoRoupaUtensilio}"></label>
             <br>
 <!--            <label for="codTipoRoupa">Código do tipo da roupa:<input type="number" name="codTipoRoupa" id="codTipoRoupa" class="form-control" th:field="${roupaU}"></label>-->
+<!--            <div class="row">-->
+<!--                <label for="codRoupaUtensilios">Tipo de Roupa:-->
+<!--                    <div class="col-5"><select class="custom-select form-control" id="inputGroupSelect01">-->
+<!--                        <option th:value=""></option>-->
+<!--                    </select>-->
+<!--                    </div>-->
+<!--                </label>-->
+<!--            </div>-->
 
-<!--            <label for="descricao">Descrição:<input type="text" name="descricao" id="descricao" class="form-control" th:field="${cliente.numeroCli}"></label>-->
+            <!--            <label for="descricao">Descrição:<input type="text" name="descricao" id="descricao" class="form-control" th:field="${cliente.numeroCli}"></label>-->
+            <br>
             <br>
             <!--/*@thymesVar id="idCli" type="java"*/-->
             <button type="submit" class="btn btn-primary">Editar</button>

@@ -41,27 +41,53 @@
 
 <!-- Masthead -->
 <header class="masthead text-dark text-center">
-    <!-- <div class="overlay "></div>-->
-    <div class="container box-left" >
-        <h3>Bem vindo,<span sec:authentication="name"></span></h3>
-        <i class="fas fa-address-book fa-3x"></i><a href="/gerenciarCli"> Gerenciar Cliente.</a>
-        <br>
-        <br>
-        <i class="fas fa-tshirt fa-3x"></i><a href="/gerenciarRoupaUtensilios">Gerenciar Trajes.</a>
-        <br>
-        <br>
-        <i class="fas fa-link fa-3x"></i><a href="/gerenciarAluguel">Gerenciar Aluguel.</a>
-        <br>
-        <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarData">Atualizar Data de Entrega.</a>
-        <br>
-        <br>
-        <i class="fas fa-calendar-alt fa-3x"></i><a href="/atualizarRetirada">Atualizar Data de Retirada.</a>
-        <!-- <div class="row">-->
-        <!--<div class="col-xl-9 mx-auto">-->
-        <!--</div>-->
-    </div>
 
+    <div class="container box-left" >
+
+        <div class="page-header">
+            <h1>Bem vindo(a), <span sec:authentication="name"></span>!</h1>
+        </div>
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-address-book fa-3x float-left "></i></div>
+            <div class="col-9 text-left">    <a href="/gerenciarCli" class="text-left">Gerenciar Cliente.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-tshirt fa-3x float-left"></i></div>
+            <div class="col-9 text-left">  <a href="/gerenciarRoupaUtensilios" class="text-left">Gerenciar Trajes.</a></div>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-3"><i class="fas fa-link fa-3x float-left"></i></div>
+            <div class="col-9 text-left"><a href="/gerenciarAluguel" class="tamfonte text-left">Gerenciar Aluguel.</a></div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-3"><i class="fas fa-calendar-alt fa-3x float-left"></i></div>
+            <div class="col-9 text-left"> <a href="/atualizarData" class="tamfonte">Atualizar Data de Entrega.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="col-3"> <i class="fas fa-calendar-alt fa-3x float-left"></i></div>
+            <div class="col-9 text-left">    <a href="/atualizarRetirada" class="tamfonte">Atualizar Data de Retirada.</a> </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+    </div>
+    <div class="text-center"><h3>Gerenciar Roupa ou Utensílio</h3></div>
     <div class="container pesquisa col-auto " >
 
         <form th:action="@{/cor}" method="GET" >
@@ -76,7 +102,7 @@
 
     <div class="card posicao" style="width: 50%;">
         <div class="panel-heading letra">
-            <h3>Gerenciar Roupa ou Utensílio</h3>
+
             <span th:text="${#strings.isEmpty(message)} ? '' : ${message}"><b></b></span>
         </div>
         <div class="card-body">

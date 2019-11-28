@@ -15,11 +15,6 @@ public class TipoRoupa implements Serializable{
     private Long codTipoRoupa;
     private String descricao;
 
-    //one to one
-//    @ManyToMany(mappedBy = "TipoRoupas", cascade = CascadeType.ALL)
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name="codTipoRoupa")
-//    private List<RoupaUtensilios> roupaUtensiliosList;
 
     public TipoRoupa(){
 

@@ -20,7 +20,9 @@ h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
-
+h3{
+    color:white;
+}
 header.masthead {
   position: relative;
   background-color: #254F6E;
@@ -153,6 +155,7 @@ label{
 
 .pesquisa{
   position: absolute;
+  top:40%;
   right:50%;
   left:35%;
   /*padding: 0%;*/
@@ -167,9 +170,16 @@ label{
   border-radius: 30px;
 }
 
+.nome{
+  position: absolute;
+  top:25%;
+  right:50%;
+  color:white;
+  /*tem q colocar right e left*/
+}
 .posicao{
   position: absolute;
-  top:50%;
+  top:75%;
   right:50%;
   left:35%;
 
@@ -197,13 +207,20 @@ label{
 .letra{
   font-size: 25px;
 }
+.tamfonte{
+    font-size: 15px;
+}
+
+.i{
+
+}
 
 .box-left{
   position: absolute;
   left:auto;
   padding: 10%;
   height: 135%;
-  width: 30%;
+  width: 25%;
   padding-top:1%;
   padding-bottom: 1%;
   padding-right: 2%;

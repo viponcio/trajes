@@ -15,16 +15,5 @@ public class HomeController {
         return "home";
     }
 
-//    public String getUsuarioLogado() {
-//        FacesContext context = FacesContext.getCurrentInstance();
-//        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
-//        usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
-//        Authentication authentication = (Authentication) SecurityContextHolder.getContext().getAuthentication();
-//        if (authentication != null) {
-//            authentication.getName();
-//        }
-//        return authentication.getName();
-//
-//    }
 
 }

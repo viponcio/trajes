@@ -18,6 +18,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.session.web.context.AbstractHttpSessionApplicationInitializer;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
@@ -58,9 +59,11 @@ public class DataConfiguration extends AbstractHttpSessionApplicationInitializer
     @Bean
     @Description("Thymeleaf Template Engine")
     public SpringTemplateEngine templateEngine() {
+
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.setTemplateEngineMessageSource(messageSource());
+        templateEngine.addDialect(new SpringSecurityDialect());
         return templateEngine;
     }
 
@@ -72,6 +75,15 @@ public class DataConfiguration extends AbstractHttpSessionApplicationInitializer
         viewResolver.setOrder(1);
         return viewResolver;
     }
+
+//    @Bean
+//    public SpringTemplateEngine templateEngine() {
+//        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+//        templateEngine.setTemplateResolver(templateResolver());
+//        templateEngine.addDialect(new TilesDialect());
+//
+//        return templateEngine;
+//    }
 
     @Bean
     @Description("Spring Message Resolver")

@@ -9,17 +9,23 @@ public class RoupaUtensilios implements Serializable {
     @Id//tirei o generatedvalue pois sou eu q vou digitar  o cod
     private long codRoupaUtensilios;
 
+
     @Column
     private String tamanho;//deixar em char pois pode ser num ou palavra
     private float precoRoupaUtensilio;
     private String cor;
-    //OnetoMany
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "table_rt" , joinColumns={@JoinColumn(name = "tiporoupa_id")},
-//            inverseJoinColumns={@JoinColumn(name = "roupautensilios_id")})
-//    @OneToMany(mappedBy = "RoupaUtensilios",orphanRemoval = true)
 
-//    private List<TipoRoupa> TipoRoupas;
+    @ManyToOne
+    @JoinColumn(name = "COD_TIPO_ROUPA")
+    private TipoRoupa tipoRoupa;
+
+    public TipoRoupa getTipoRoupa() {
+        return tipoRoupa;
+    }
+
+    public void setTipoRoupa(TipoRoupa tipoRoupa) {
+        this.tipoRoupa = tipoRoupa;
+    }
 
     public RoupaUtensilios(){
 
