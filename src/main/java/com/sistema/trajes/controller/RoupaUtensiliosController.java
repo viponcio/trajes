@@ -1,12 +1,10 @@
 package com.sistema.trajes.controller;
 
 import com.sistema.dao.RoupaUtensiliosDao;
-import com.sistema.model.Cliente;
 import com.sistema.model.RoupaUtensilios;
 import com.sistema.model.TipoRoupa;
 import com.sistema.repository.RoupaUtensiliosRepository;
 import com.sistema.repository.TipoRoupaRepository;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,6 +45,7 @@ public class RoupaUtensiliosController {
 
         Iterable<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
         mv.addObject("tipoRoupa",tipoRoupa);
+        System.out.println("tipos:"+tipoRoupaRepository.findAll());
         return mv;
 
     }
@@ -53,15 +53,21 @@ public class RoupaUtensiliosController {
     @RequestMapping("/cadastrarRoupaUtensilios")
     public ModelAndView cadastrarRoupaUtensilios(){
         ModelAndView mv = new ModelAndView("cadastrarRoupaUtensilios");
-        List<RoupaUtensilios> tipoRoupa = roupaUtensiliosRepository.findAll();
+
+        List<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
+
         mv.addObject("tipoRoupa",tipoRoupa);
         return mv;
     }
 
     @RequestMapping(value="/salvarRoupaUtensilios", method = RequestMethod.POST)
-    public ModelAndView salvarRoupaUtensilios(RoupaUtensilios roupaUtensilios,TipoRoupa tipoRoupa){
+    public ModelAndView salvarRoupaUtensilios(HttpServletRequest request, RoupaUtensilios roupaUtensilios, TipoRoupa tipoRoupa, Long idTipoRoupa){
+        if (idTipoRoupa != null) {
+            roupaUtensilios.setTipoRoupa(tipoRoupaRepository.findById(idTipoRoupa).get());
+        }
+
         roupaUtensiliosRepository.save(roupaUtensilios);
-        tipoRoupaRepository.save(tipoRoupa);
+
         return new ModelAndView("redirect:/gerenciarRoupaUtensilios");
     }
 

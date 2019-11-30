@@ -18,10 +18,14 @@ import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 import org.springframework.session.web.context.AbstractHttpSessionApplicationInitializer;
-import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
-import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import javax.persistence.EntityManagerFactory;
@@ -31,7 +35,7 @@ import javax.sql.DataSource;
 @Configuration
 @Profile("dev")
 @EnableJdbcHttpSession
-public class DataConfiguration extends AbstractHttpSessionApplicationInitializer {
+public class DataConfiguration extends AbstractHttpSessionApplicationInitializer, WebMvcConfigurerAdapter {
     @Autowired
     private ServletContext ctx;
 
@@ -43,6 +47,15 @@ public class DataConfiguration extends AbstractHttpSessionApplicationInitializer
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         return dataSource;
+    }
+
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/view/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(JstlView.class);
+        registry.viewResolver(resolver);
     }
 
     @Bean

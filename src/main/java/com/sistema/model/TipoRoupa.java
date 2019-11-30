@@ -43,11 +43,5 @@ public class TipoRoupa implements Serializable{
         this.descricao = descricao;
     }
 
-//    public List<RoupaUtensilios> getRoupaUtensiliosList() {
-//        return roupaUtensiliosList;
-//    }
-//
-//    public void setRoupaUtensiliosList(List<RoupaUtensilios> roupaUtensiliosList) {
-//        this.roupaUtensiliosList = roupaUtensiliosList;
-//    }
+
 }

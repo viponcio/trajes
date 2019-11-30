@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml">
+      spring.mvc.view.prefix=/WEB-INF/jsp/
+        spring.mvc.view.suffix=.jsp
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 
@@ -32,7 +35,7 @@
     <div class="container" style="display:flex;justify-content:center;align-items:center;">
         <a class="navbar-brand" href="/home"><b>To Dress</b></a>
         <span class="navbar-text">Sistema de Gerenciamento de Aluguel de Trajes</span>
-        <form th:action="@{/logout}" method="post">
+        <form action="@{/logout}" method="post">
             <button class="btn btn-dark" type="submit">Sair</button>
         </form>
     </div>
@@ -42,7 +45,7 @@
 <header class="masthead text-dark text-center">
     <div class="container box-left" >
         <div class="page-header">
-
+            <h4>Bem vindo(a), <span sec:authentication="name"></span>!</h4>
         </div>
         <div class="row">
             <div class="col-3"> <i class="fas fa-address-book fa-3x float-left "></i></div>
@@ -87,29 +90,20 @@
     <h3 class="text-center" >Cadastro de Roupa ou Utensílio</h3>
     <div class="container box">
 
-        <form method="post" action="/salvarRoupaUtensilios">
-            <label for="codRoupaUtensilios">Código:<input type="text" name="codRoupaUtensilios" id="codRoupaUtensilios" class="form-control" placeholder="digite o código"></label>
+        <form method="post" action="/salvarRoupaUtensilios" >
             <label for="tamanho">Tamanho:<input type="text" name="tamanho" id="tamanho" class="form-control" placeholder="digite o tamanho pode ser letra ou número" ></label>
             <br>
             <label for="cor">Cor:<input type="text" name="cor" id="cor" class="form-control" placeholder="digite a cor" ></label>
             <label for="precoRoupaUtensilio">Preço:<input type="text" name="precoRoupaUtensilio" id="precoRoupaUtensilio" class="form-control" placeholder="digite o preço" ></label>
             <br>
 
-            <div class="row">
-<!--                fazer leitura-->
-                <label>Tipo de Roupa:
-                <div class="col-5"><select  th:field="*{codRoupaUtensilios}" class="custom-select form-control" id="inputGroupSelect01">
-                    <option value="">Selecione a Roupa ou Utensílio</option>
-                    <option th:each="tipoRoupa : ${tipoRoupas}" th:value="$tipoRoupa.descricao"></option>
+            <label th:for="tipoRoupa" >Tipo de Roupa:
+                <div><select th:field="*{tipoRoupa}" name="tipoRoupa" class="custom-select form-control" id="inputGroupSelect01 tipoRoupa">
+                    <option  th:each="tipoRoupa : ${tipoRoupa}" th:text="${tipoRoupa.descricao}" th:value="${tipoRoupa.codTipoRoupa}"></option>
                 </select>
                 </div>
                 </label>
-            </div>
 
-<!--            <select id="pais" th:field="*{pais}">-->
-<!--                <option value="">Selecione o país</option>-->
-<!--                <option th:each="pais : ${paises}" th:value="${pais.id}" th:text="${pais.descricao}" selected="selected"></option>-->
-<!--            </select>-->
 
             <br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:th="http://www.w3.org/1999/xhtml">
+
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -43,9 +44,7 @@
     <!-- <div class="overlay "></div>-->
     <div class="container box-left" >
         <div class="page-header">
-            <div sec:authorize="hasRole('ADMIN')">
-                User: <span sec:authentication="name"></span>
-            </div>
+            <h4>Bem vindo(a), <span sec:authentication="name"></span>!</h4>
         </div>
         <div class="row">
         <div class="col-3"> <i class="fas fa-address-book fa-3x float-left "></i></div>

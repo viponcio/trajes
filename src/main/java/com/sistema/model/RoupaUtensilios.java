@@ -1,22 +1,21 @@
 package com.sistema.model;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 public class RoupaUtensilios implements Serializable {
     private static final long serialVersionUID=1L;
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id//tirei o generatedvalue pois sou eu q vou digitar  o cod
     private long codRoupaUtensilios;
-
-
     @Column
     private String tamanho;//deixar em char pois pode ser num ou palavra
     private float precoRoupaUtensilio;
     private String cor;
 
+
     @ManyToOne
-    @JoinColumn(name = "COD_TIPO_ROUPA")
+    @JoinColumn(name = "codTipoRoupa")
     private TipoRoupa tipoRoupa;
 
     public TipoRoupa getTipoRoupa() {
@@ -69,5 +68,6 @@ public class RoupaUtensilios implements Serializable {
     public void setCor(String cor) {
         this.cor = cor;
     }
+
 
 }
