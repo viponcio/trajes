@@ -68,27 +68,13 @@
             <br>
         </div>
 
-        <div class="row">
-            <div class="col-3"><i class="fas fa-calendar-alt fa-3x float-left"></i></div>
-            <div class="col-9 text-left"> <a href="/atualizarData" class="tamfonte">Atualizar Data de Entrega.</a> </div>
-            <br>
-            <br>
-            <br>
-        </div>
 
-        <div class="row">
-            <div class="col-3"> <i class="fas fa-calendar-alt fa-3x float-left"></i></div>
-            <div class="col-9 text-left">    <a href="/atualizarRetirada" class="tamfonte">Atualizar Data de Retirada.</a> </div>
-            <br>
-            <br>
-            <br>
-        </div>
 
     </div>
     <h3 class="text-center" >Gerenciar Aluguel</h3>
     <div class="container pesquisa col-auto " >
 
-        <form th:action="@{/nomeCli}"  method="GET" >
+        <form th:action="@{/nomeCli}"  method="POST" >
 
             <label for="nomeCli">Buscar</label>
             <input type="text" id="nomeCli" name="nomeCli">

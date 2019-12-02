@@ -2,6 +2,7 @@ package com.sistema.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 //essa classe o hibernate irá automaticamente se torna a tabela
 @Entity
 public class Cliente implements Serializable {
@@ -23,6 +24,9 @@ public class Cliente implements Serializable {
     private String nascimentoCli;
     private String estadoCli;
     private String cidadeCli;
+
+//    @OneToMany(mappedBy = "Cliente")
+//    private Set<Aluguel> aluguels;
 
     public Cliente(Long idCli, String nomeCli, String sobrenomeCli, String emailCli, String foneCli, String ruaCli, String cepCli, String bairroCli, String numeroCli, String cpfCli, String nascimentoCli, String estadoCli, String cidadeCli) {
         this.idCli = idCli;
@@ -145,4 +149,12 @@ public class Cliente implements Serializable {
     public void setCidadeCli(String cidadeCli) {
         this.cidadeCli = cidadeCli;
     }
+
+//    public Set<Aluguel> getAluguels() {
+//        return aluguels;
+//    }
+//
+//    public void setAluguels(Set<Aluguel> aluguels) {
+//        this.aluguels = aluguels;
+//    }
 }

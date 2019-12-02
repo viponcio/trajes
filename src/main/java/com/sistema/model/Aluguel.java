@@ -11,14 +11,28 @@ public class Aluguel implements Serializable{
 
     @Column
     private float preco;
-    private Date dataEvento;
-    private Date dataProva;
-    private Date dataRetirada;
-    private Date dataEntrega;
-    private int idFunc;
+    private String dataEvento;
+    private String dataProva;
+    private String dataRetirada;
+    private String dataEntrega;
+
+    @ManyToOne
+    @JoinColumn(name="idCli_FK")
+    private Cliente cliente;
 
     public Aluguel(){
 
+    }
+
+
+    public Aluguel(Long codAluguel, float preco, String dataEvento,String dataProva , String dataRetirada ,String dataEntrega) {
+        this.codAluguel = codAluguel;
+        this.preco = preco;
+        this.dataEvento = dataEvento;
+        this.dataProva = dataProva;
+
+        this.dataRetirada = dataRetirada;
+        this.dataEntrega = dataEntrega;
     }
 
     public Long getCodAluguel() {
@@ -29,16 +43,6 @@ public class Aluguel implements Serializable{
         this.codAluguel = codAluguel;
     }
 
-    public Aluguel(Long codAluguel, float preco, Date dataEvento, Date dataProva, Date dataRetirada, Date dataEntrega, int idFunc) {
-        this.codAluguel = codAluguel;
-        this.preco = preco;
-        this.dataEvento = dataEvento;
-        this.dataProva = dataProva;
-        this.dataRetirada = dataRetirada;
-        this.dataEntrega = dataEntrega;
-        this.idFunc = idFunc;
-    }
-
     public float getPreco() {
         return preco;
     }
@@ -47,44 +51,44 @@ public class Aluguel implements Serializable{
         this.preco = preco;
     }
 
-    public Date getDataEvento() {
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getDataEvento() {
         return dataEvento;
     }
 
-    public void setDataEvento(Date dataEvento) {
+    public void setDataEvento(String dataEvento) {
         this.dataEvento = dataEvento;
     }
 
-    public Date getDataProva() {
+    public String getDataProva() {
         return dataProva;
     }
 
-    public void setDataProva(Date dataProva) {
+    public void setDataProva(String dataProva) {
         this.dataProva = dataProva;
     }
 
-    public Date getDataRetirada() {
+    public String getDataRetirada() {
         return dataRetirada;
     }
 
-    public void setDataRetirada(Date dataRetirada) {
+    public void setDataRetirada(String dataRetirada) {
         this.dataRetirada = dataRetirada;
     }
 
-    public Date getDataEntrega() {
+    public String getDataEntrega() {
         return dataEntrega;
     }
 
-    public void setDataEntrega(Date dataEntrega) {
+    public void setDataEntrega(String dataEntrega) {
         this.dataEntrega = dataEntrega;
     }
-
-    public int getIdFunc() {
-        return idFunc;
-    }
-
-    public void setIdFunc(int idFunc) {
-        this.idFunc = idFunc;
-    }
-
 }

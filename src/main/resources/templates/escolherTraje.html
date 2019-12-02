@@ -41,6 +41,7 @@
 
 <!-- Masthead -->
 <header class="masthead text-dark text-center">
+    <h3 class="text-center">Escolher Datas</h3>
     <div class="container box-left" >
         <div class="page-header">
             <h4>Bem vindo(a), <span sec:authentication="name"></span>!</h4>
@@ -71,54 +72,24 @@
 
 
     </div>
-    <h3 class="text-center" >Busca de Cliente</h3>
-    <div class="container pesquisa col-auto " >
+    <div class="container box">
 
-        <form th:action="@{/nomeCli}"  method="GET" >
+        <form action="/cadastrarAluguel" method="POST" >
+            <label for="nomeCli">Nome:<input type="text" name="nomeCli" id="nomeCli" class="form-control" th:field="${cliente.nomeCli}"></label>
 
-<!--            <a class="btn btn-primary ml-5" th:href="${#mvc.url('CC#buscarCli').arg(0, c.idCli).build()}" role="button">Editar</a>-->
-
-            <label for="nomeCli">Buscar</label>
-            <input type="text" id="nomeCli" name="nomeCli">
-            <button type="submit"><i class="fas fa-search fa-1x"></i></button>
-
-            <a class="btn btn-primary ml-5" href="/cadastrarCli" role="button">Cadastrar</a>
-
+            <label for="idCli"><input type="hidden" name="idCli" id="idCli" class="form-control" ></label>
+            <label for="dataEvento">Data do Evento:<input type="date" name="dataEvento" id="dataEvento" class="form-control" ></label>
+            <br>
+            <label for="dataProva">Data da Prova do Traje:<input type="date" name="dataProva" id="dataProva" class="form-control" ></label>
+            <label for="dataRetirada">Data de Retirada:<input type="date" name="dataRetirada" id="dataRetirada" class="form-control" ></label>
+            <br>
+            <label for="dataEntrega">Data de Entrega:<input type="date" name="dataEntrega" id="dataEntrega" class="form-control"></label>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <a class="btn btn-danger ml-5" href="/gerenciarAluguel" role="button">Cancelar</a>
         </form>
-
     </div>
-
-    <div class="card posicao" style="width: 50%;">
-        <div class="panel-heading letra">
-            <span th:text="${#strings.isEmpty(message)} ? '' : ${message}"><b></b></span>
-        </div>
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Número</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Ação</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!--Para cada cliente apararece o código e nome dele
-                -->
-                <tr th:each="c:${clientes}">
-<!--                    <div th:if="${}">-->
-<!--                        <div class="alert alert-danger">Nenhum Cliente encontrado!</div>-->
-<!--                    </div>-->
-                    <th th:text="${c.idCli}"></th>
-                    <th th:text="${c.nomeCli}"></th>
-
-                    <td><a class="btn btn-primary ml-5" th:href="${#mvc.url('CC#buscarCli').arg(0, c.idCli).build()}" role="button">Editar</a>
-                    <a class="btn btn-primary ml-5" th:href="${#mvc.url('CC#excluirCli').arg(0,c.idCli).build()}" role="button">Excluir</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <!--</div>-->
 </header>
 
 
@@ -126,6 +97,11 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="vendor/jquery/mascaras.js"></script>
+<script src="vendor/jquery/jquery.maskedinputs.js"></script>
 </body>
 
 </html>

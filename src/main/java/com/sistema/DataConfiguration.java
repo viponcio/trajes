@@ -35,7 +35,7 @@ import javax.sql.DataSource;
 @Configuration
 @Profile("dev")
 @EnableJdbcHttpSession
-public class DataConfiguration extends AbstractHttpSessionApplicationInitializer, WebMvcConfigurerAdapter {
+public class DataConfiguration extends AbstractHttpSessionApplicationInitializer{
     @Autowired
     private ServletContext ctx;
 
@@ -49,14 +49,6 @@ public class DataConfiguration extends AbstractHttpSessionApplicationInitializer
         return dataSource;
     }
 
-    @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/view/");
-        resolver.setSuffix(".jsp");
-        resolver.setViewClass(JstlView.class);
-        registry.viewResolver(resolver);
-    }
 
     @Bean
     @Description("Thymeleaf Template Resolver")

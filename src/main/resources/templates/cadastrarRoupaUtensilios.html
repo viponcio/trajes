@@ -70,21 +70,7 @@
             <br>
         </div>
 
-        <div class="row">
-            <div class="col-3"><i class="fas fa-calendar-alt fa-3x float-left"></i></div>
-            <div class="col-9 text-left"> <a href="/atualizarData" class="tamfonte">Atualizar Data de Entrega.</a> </div>
-            <br>
-            <br>
-            <br>
-        </div>
 
-        <div class="row">
-            <div class="col-3"> <i class="fas fa-calendar-alt fa-3x float-left"></i></div>
-            <div class="col-9 text-left">    <a href="/atualizarRetirada" class="tamfonte">Atualizar Data de Retirada.</a> </div>
-            <br>
-            <br>
-            <br>
-        </div>
 
     </div>
     <h3 class="text-center" >Cadastro de Roupa ou Utensílio</h3>
@@ -102,8 +88,20 @@
                     <option  th:each="tipoRoupa : ${tipoRoupa}" th:text="${tipoRoupa.descricao}" th:value="${tipoRoupa.codTipoRoupa}"></option>
                 </select>
                 </div>
-                </label>
+            </label>
 
+
+<!--            <form id="IdDoMeuForm" action="salvarrota" method="post">-->
+<!--                <div class="form-group">-->
+<!--                    <label for="aeronave_id">Aeronave</label>-->
+<!--                    <br></br>-->
+<!--                    <select form="IdDoMeuForm" id="aeronave_id" name="aeronave_id" th:field="${aeronaves}" class="form-control">-->
+<!--                        <option value="">Selecione a Aeronave</option>-->
+<!--                        <option th:each="aeronave : ${aeronaves}" th:value="${aeronave.id}" th:text="${aeronave.modelo} " selected="selected"></option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--                <button type="submit" class="btn btn-success">Cadastrar</button>-->
+<!--            </form>-->
 
             <br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>

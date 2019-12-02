@@ -1,5 +1,6 @@
 package com.sistema.trajes.controller;
 
+import com.sistema.Component.TipoRoupaConversor;
 import com.sistema.dao.RoupaUtensiliosDao;
 import com.sistema.model.RoupaUtensilios;
 import com.sistema.model.TipoRoupa;
@@ -53,7 +54,7 @@ public class RoupaUtensiliosController {
     @RequestMapping("/cadastrarRoupaUtensilios")
     public ModelAndView cadastrarRoupaUtensilios(){
         ModelAndView mv = new ModelAndView("cadastrarRoupaUtensilios");
-
+        System.out.println("entrou cadastrar");
         List<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
 
         mv.addObject("tipoRoupa",tipoRoupa);
@@ -62,9 +63,9 @@ public class RoupaUtensiliosController {
 
     @RequestMapping(value="/salvarRoupaUtensilios", method = RequestMethod.POST)
     public ModelAndView salvarRoupaUtensilios(HttpServletRequest request, RoupaUtensilios roupaUtensilios, TipoRoupa tipoRoupa, Long idTipoRoupa){
-        if (idTipoRoupa != null) {
-            roupaUtensilios.setTipoRoupa(tipoRoupaRepository.findById(idTipoRoupa).get());
-        }
+//        if (idTipoRoupa != null) {
+//            roupaUtensilios.setTipoRoupa(tipoRoupaRepository.findById(idTipoRoupa).get());
+//        }
 
         roupaUtensiliosRepository.save(roupaUtensilios);
 

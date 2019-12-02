@@ -8,6 +8,7 @@ public class RoupaUtensilios implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id//tirei o generatedvalue pois sou eu q vou digitar  o cod
     private long codRoupaUtensilios;
+
     @Column
     private String tamanho;//deixar em char pois pode ser num ou palavra
     private float precoRoupaUtensilio;

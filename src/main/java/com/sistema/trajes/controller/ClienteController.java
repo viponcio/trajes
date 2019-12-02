@@ -2,10 +2,13 @@ package com.sistema.trajes.controller;
 
 import com.sistema.dao.ClienteDao;
 import com.sistema.model.Cliente;
+import com.sistema.model.TipoRoupa;
 import com.sistema.repository.ClienteRepository;
+import com.sistema.repository.TipoRoupaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -15,8 +18,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import java.util.List;
 import java.util.Optional;
 
 @Controller//anotação
@@ -30,6 +31,9 @@ public class ClienteController {
 
     @Autowired
     private ClienteDao dao;
+
+    @Autowired
+    private TipoRoupaRepository tipoRoupaRepository;
 
     @RequestMapping("/cadastrarCli")
     public String cadastrarCli(){
@@ -85,10 +89,12 @@ public class ClienteController {
             return new ModelAndView("redirect:/gerenciarCli");
 
         }
+
 //        Cliente cli = new Cliente();
         System.out.println("nome:"+nomeCli);
         model.addAttribute("clientes", dao.getByNomeCli(nomeCli));
         return new ModelAndView("acharNome",model);
+
 
     }
 
