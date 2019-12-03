@@ -110,7 +110,7 @@
                     <th scope="row" th:text="${cliente.idCli}"></th>
                     <td th:text="${cliente.nomeCli}"></td>
                     <td><a class="btn btn-primary ml-5" th:href="${#mvc.url('CC#buscarCli').arg(0, cliente.idCli).build()}" role="button">Editar</a>
-                    <a class="btn btn-primary ml-5" th:href="${#mvc.url('CC#excluirCli').arg(0,cliente.idCli).build()}" role="button">Excluir</a></td>
+                        <a class="btn btn-primary ml-5" th:href="${#mvc.url('CC#excluirCli').arg(0,cliente.idCli).build()}" role="button">Excluir</a></td>
                 </tr>
                 </tbody>
             </table>

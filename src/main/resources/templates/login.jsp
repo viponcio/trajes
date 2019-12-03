@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en"
         xmlns:th="http://thymeleaf.org"
@@ -39,15 +41,17 @@
   <header class="masthead text-dark text-center">
    <!-- <div class="overlay "></div>--> 
     <div class="container login">
-      <div th:if="${param.error}">
+      <div <c:if test="${param.error}"> >
         <div class="alert alert-danger">Usuario/senha invalidos!</div>
+      </c:if>
       </div>
-      <div th:if="${param.logout}">
+      <div <c:if test="${param.logout}">>
         <div class="alert alert-info">Usuário desconectado!</div>
       </div>
-        <h1>Login</h1>
+      </c:if>
+      <h1>Login</h1>
       <!--      </div>-->
-          <form  th:action="@{/login}" method="POST">
+          <form  action="@{/login}" method="POST">
             <label for="username">E-mail:<input type="email" name="username" id="username" class="form-control" placeholder="digite o seu e-mail" /></label>
             <br>
             <br>
@@ -60,8 +64,6 @@
 
           </form>
         <br>
-        <a href="/cadastrarFuncionario">Ainda não possui cadastro?</a>
-
         <!--</div>-->
       </div>
     <!--</div>-->

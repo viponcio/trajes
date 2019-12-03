@@ -1,6 +1,5 @@
 package com.sistema.trajes.controller;
 
-import com.sistema.Component.TipoRoupaConversor;
 import com.sistema.dao.RoupaUtensiliosDao;
 import com.sistema.model.RoupaUtensilios;
 import com.sistema.model.TipoRoupa;
@@ -44,7 +43,7 @@ public class RoupaUtensiliosController {
         Iterable<RoupaUtensilios> roupaUtensilios = roupaUtensiliosRepository.findAll();
         mv.addObject("roupaUtensilios",roupaUtensilios);
 
-        Iterable<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
+        List<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
         mv.addObject("tipoRoupa",tipoRoupa);
         System.out.println("tipos:"+tipoRoupaRepository.findAll());
         return mv;
@@ -52,22 +51,22 @@ public class RoupaUtensiliosController {
     }
 
     @RequestMapping("/cadastrarRoupaUtensilios")
-    public ModelAndView cadastrarRoupaUtensilios(){
+    public ModelAndView cadastrarRoupaUtensilios(RoupaUtensilios roupaUtensilios){
         ModelAndView mv = new ModelAndView("cadastrarRoupaUtensilios");
         System.out.println("entrou cadastrar");
         List<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
-
-        mv.addObject("tipoRoupa",tipoRoupa);
+        mv.addObject("tipoRoupa", new TipoRoupa());
+        mv.addObject("tiposRoupa",tipoRoupa);
         return mv;
     }
 
     @RequestMapping(value="/salvarRoupaUtensilios", method = RequestMethod.POST)
-    public ModelAndView salvarRoupaUtensilios(HttpServletRequest request, RoupaUtensilios roupaUtensilios, TipoRoupa tipoRoupa, Long idTipoRoupa){
-//        if (idTipoRoupa != null) {
-//            roupaUtensilios.setTipoRoupa(tipoRoupaRepository.findById(idTipoRoupa).get());
-//        }
+    public ModelAndView salvarRoupaUtensilios(HttpServletRequest request, RoupaUtensilios roupaUtensilios, Long codTipoRoupa){
+        if (roupaUtensilios.getCodTipoRoupa() != null) {
+            roupaUtensilios.setTipoRoupa(tipoRoupaRepository.findById(roupaUtensilios.getCodTipoRoupa()).get());
+        }
 
-        roupaUtensiliosRepository.save(roupaUtensilios);
+        roupaUtensiliosRepository.saveAndFlush(roupaUtensilios);
 
         return new ModelAndView("redirect:/gerenciarRoupaUtensilios");
     }
@@ -84,16 +83,19 @@ public class RoupaUtensiliosController {
 
     @RequestMapping(value="/editarRoupaUtensilios")
     public ModelAndView editarRoupaUtensilios(RoupaUtensilios roupaUtensilios){
-        roupaUtensiliosRepository.save(roupaUtensilios);
+        roupaUtensiliosRepository.saveAndFlush(roupaUtensilios);
         return new ModelAndView("redirect:/gerenciarRoupaUtensilios");
     }
 
     @GetMapping("/cor")
-    public ModelAndView acharCor(@RequestParam("cor") String cor, ModelMap model){//lista a cor encontrado
-        if(cor.length() == 0){
-            System.out.println("cor veio nula");
+    public ModelAndView acharCor(@RequestParam("cor") String cor, ModelMap model,RedirectAttributes att){//lista a cor encontrado
+        if(cor.isEmpty()){
+            att.addFlashAttribute("message","Busca em branco");
             return new ModelAndView("redirect:/gerenciarRoupaUtensilios");
-
+        }
+        if(cor.length() <=2){
+            att.addFlashAttribute("message","Digite novamente,nada foi encontrado");
+            return new ModelAndView("redirect:/gerenciarRoupaUtensilios");
         }
         System.out.println("nome:"+cor);
         model.addAttribute("cores", dao.getByCor(cor));

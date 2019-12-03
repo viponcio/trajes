@@ -17,7 +17,7 @@ public class ClienteDaoImp implements ClienteDao {
 
     @Transactional(readOnly = true)
     @Override
-    public List<Cliente> getByNomeCli(String nomeCli) {
+    public List<Cliente> getByNomeCli(String nomeCli) {//jpql serve para busca
         String jpql= "select c from Cliente c where lower(c.nomeCli)  like :nomeCli";
         TypedQuery<Cliente> query= entityManager.createQuery(jpql, Cliente.class);
         query.setParameter("nomeCli","%"+nomeCli.toLowerCase()+"%");

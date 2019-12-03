@@ -32,8 +32,6 @@ public class ClienteController {
     @Autowired
     private ClienteDao dao;
 
-    @Autowired
-    private TipoRoupaRepository tipoRoupaRepository;
 
     @RequestMapping("/cadastrarCli")
     public String cadastrarCli(){
@@ -83,9 +81,10 @@ public class ClienteController {
 
 
     @GetMapping("/nomeCli")
-    public ModelAndView acharNome(@RequestParam("nomeCli") String nomeCli, ModelMap model){//lista o meu cliente encontrado pelo nome
+    public ModelAndView acharNome(@RequestParam("nomeCli") String nomeCli, ModelMap model,RedirectAttributes attributes){//lista o meu cliente encontrado pelo nome
         if(nomeCli.length() == 0){
             System.out.println("entrou");
+            attributes.addFlashAttribute("message", "Foi digitado nada.");
             return new ModelAndView("redirect:/gerenciarCli");
 
         }

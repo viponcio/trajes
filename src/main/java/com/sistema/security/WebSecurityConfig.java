@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/cadastrarFuncionario").permitAll()
-                .anyRequest().authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/gerenciarCli").permitAll()
+                .anyRequest().authenticated().and().formLogin().loginPage("/login").loginProcessingUrl("/login").defaultSuccessUrl("/gerenciarCli").permitAll()
                 .and().logout().permitAll()//apenas a pág index do meu sistema não precisa de autenticação
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));//encerra a sessão pelo /logout
     }

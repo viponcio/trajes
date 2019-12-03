@@ -14,6 +14,15 @@ public class RoupaUtensilios implements Serializable {
     private float precoRoupaUtensilio;
     private String cor;
 
+    private transient Long codTipoRoupa;
+
+    public Long getCodTipoRoupa() {
+        return codTipoRoupa;
+    }
+
+    public void setCodTipoRoupa(Long codTipoRoupa) {
+        this.codTipoRoupa = codTipoRoupa;
+    }
 
     @ManyToOne
     @JoinColumn(name = "codTipoRoupa")

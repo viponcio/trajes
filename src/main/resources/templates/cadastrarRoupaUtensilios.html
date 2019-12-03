@@ -84,8 +84,9 @@
             <br>
 
             <label th:for="tipoRoupa" >Tipo de Roupa:
-                <div><select th:field="*{tipoRoupa}" name="tipoRoupa" class="custom-select form-control" id="inputGroupSelect01 tipoRoupa">
-                    <option  th:each="tipoRoupa : ${tipoRoupa}" th:text="${tipoRoupa.descricao}" th:value="${tipoRoupa.codTipoRoupa}"></option>
+                <div><select th:field="*{tipoRoupa}" class="custom-select form-control" >
+                    <option th:value="${tipoRoupa.codTipoRoupa}"></option>
+                    <option  th:each="tipoRoupa : ${tiposRoupa}" th:text="${tipoRoupa.descricao}" th:value="${tipoRoupa.codTipoRoupa}"></option>
                 </select>
                 </div>
             </label>
