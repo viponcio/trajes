@@ -55,13 +55,13 @@ public class RoupaUtensiliosController {
         ModelAndView mv = new ModelAndView("cadastrarRoupaUtensilios");
         System.out.println("entrou cadastrar");
         List<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
-        mv.addObject("tipoRoupa", new TipoRoupa());
         mv.addObject("tiposRoupa",tipoRoupa);
         return mv;
     }
 
     @RequestMapping(value="/salvarRoupaUtensilios", method = RequestMethod.POST)
     public ModelAndView salvarRoupaUtensilios(HttpServletRequest request, RoupaUtensilios roupaUtensilios, Long codTipoRoupa){
+        System.out.println(roupaUtensilios);
         if (roupaUtensilios.getCodTipoRoupa() != null) {
             roupaUtensilios.setTipoRoupa(tipoRoupaRepository.findById(roupaUtensilios.getCodTipoRoupa()).get());
         }
@@ -72,12 +72,11 @@ public class RoupaUtensiliosController {
     }
 
     @RequestMapping(value = "/buscarRoupaUtensilios" , method = RequestMethod.GET)
-    public ModelAndView buscarRoupaUtensilios(@RequestParam("codRoupaUtensilios") Long codRoupaUtensilios,@RequestParam("codTipoRoupa") Long codTipoRoupa, Model model){
-        System.out.println("cod:"+codRoupaUtensilios);
-        System.out.println("");
+    public ModelAndView buscarRoupaUtensilios(@RequestParam("codRoupaUtensilios") Long codRoupaUtensilios, Model model){
+
         ModelAndView mv = new ModelAndView("editarRoupaUtensilios");
         Optional<RoupaUtensilios> roupaU = this.roupaUtensiliosRepository.findById(codRoupaUtensilios);
-        mv.addObject("roupaU",roupaU);
+        mv.addObject("roupaU",roupaU.get());
         return mv;
     }
 
@@ -97,7 +96,6 @@ public class RoupaUtensiliosController {
             att.addFlashAttribute("message","Digite novamente,nada foi encontrado");
             return new ModelAndView("redirect:/gerenciarRoupaUtensilios");
         }
-        System.out.println("nome:"+cor);
         model.addAttribute("cores", dao.getByCor(cor));
         return new ModelAndView("acharRoupaUtensilios",model);
 

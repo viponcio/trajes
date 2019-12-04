@@ -79,14 +79,7 @@ public class AluguelController extends HttpServlet {
     @RequestMapping(value = "/cadastrarAluguel",method = RequestMethod.POST)
     public ModelAndView cadastrarAluguel (Cliente cliente, Aluguel aluguel,ModelMap model){
         System.out.println("cadastro do aluguel");
-//        SchoolClass schoolClass = schoolClassService.getSchoolClassById(idSchoolClass);
-//
-//        schoolClass.getId();
-//
-//        student.setSchollClass(schoolClass);
-//
-//        studentService.saveStudent(student);
-//        System.out.println("numerooo:"+aluguel1.getCliente().getIdCli());
+
         aluguelRepository.save(aluguel);
         return new ModelAndView("/gerenciarAluguel");
     }

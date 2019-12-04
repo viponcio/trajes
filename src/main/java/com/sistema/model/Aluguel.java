@@ -10,7 +10,6 @@ public class Aluguel implements Serializable{
     private Long codAluguel;
 
     @Column
-    private float preco;
     private String dataEvento;
     private String dataProva;
     private String dataRetirada;
@@ -25,9 +24,8 @@ public class Aluguel implements Serializable{
     }
 
 
-    public Aluguel(Long codAluguel, float preco, String dataEvento,String dataProva , String dataRetirada ,String dataEntrega) {
+    public Aluguel(Long codAluguel ,String dataEvento,String dataProva , String dataRetirada ,String dataEntrega) {
         this.codAluguel = codAluguel;
-        this.preco = preco;
         this.dataEvento = dataEvento;
         this.dataProva = dataProva;
 
@@ -43,13 +41,7 @@ public class Aluguel implements Serializable{
         this.codAluguel = codAluguel;
     }
 
-    public float getPreco() {
-        return preco;
-    }
 
-    public void setPreco(float preco) {
-        this.preco = preco;
-    }
 
 
     public Cliente getCliente() {

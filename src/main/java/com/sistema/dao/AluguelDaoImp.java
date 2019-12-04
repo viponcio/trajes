@@ -12,7 +12,7 @@ import java.util.List;
 public class AluguelDaoImp {
 
     public boolean salvar(Aluguel aluguel){
-        String sql="INSERT INTO aluguel (codAluguel,dataEntrega,dataEvento,dataProva,dataRetirada,preco,idCli) VALUES (?,?,?,?,?,?,?)";
+        String sql="INSERT INTO aluguel (codAluguel,dataEntrega,dataEvento,dataProva,dataRetirada,idCli) VALUES (?,?,?,?,?,?,?)";
         PreparedStatement stmt = null;
 
         try{
@@ -21,7 +21,6 @@ public class AluguelDaoImp {
             stmt.setString(3 ,aluguel.getDataEvento());
             stmt.setString(4,aluguel.getDataProva());
             stmt.setString(5,aluguel.getDataRetirada());
-            stmt.setFloat(6, aluguel.getPreco());
             stmt.setLong(7 ,aluguel.getCliente().getIdCli());
             stmt.executeUpdate();
             return true;

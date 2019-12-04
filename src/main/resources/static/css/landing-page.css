@@ -113,7 +113,9 @@ header.masthead p {
   padding-top: 7rem;
   padding-bottom: 7rem;
 }
-
+span{
+  font-size: 20px;
+}
 .ml-5 {
   margin-left: ($spacer * 3) !important;
 }

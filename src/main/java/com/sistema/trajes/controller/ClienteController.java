@@ -2,6 +2,7 @@ package com.sistema.trajes.controller;
 
 import com.sistema.dao.ClienteDao;
 import com.sistema.model.Cliente;
+import com.sistema.model.Funcionario;
 import com.sistema.model.TipoRoupa;
 import com.sistema.repository.ClienteRepository;
 import com.sistema.repository.TipoRoupaRepository;
@@ -18,10 +19,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Optional;
-
+@WebServlet(urlPatterns = "/clienteController")
 @Controller//anotação
-public class ClienteController {
+public class ClienteController extends HttpServlet {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -33,8 +38,10 @@ public class ClienteController {
     private ClienteDao dao;
 
 
+
     @RequestMapping("/cadastrarCli")
-    public String cadastrarCli(){
+    public String cadastrarCli(HttpServletRequest req){
+
         return "cadastrarCli";
     }
 
@@ -58,9 +65,10 @@ public class ClienteController {
 
     @RequestMapping(value = "/buscarCli" , method = RequestMethod.GET)
     public ModelAndView  buscarCli(@RequestParam("idCli") Long idCli, Model model){
+        System.out.println("entrou no buscarCli");
         ModelAndView mv = new ModelAndView("editarCli");
         Optional<Cliente> cliente = this.clienteRepository.findById(idCli);
-        mv.addObject("cliente",cliente);
+        mv.addObject("cliente",cliente.get());
         return mv;
 
     }
@@ -72,10 +80,13 @@ public class ClienteController {
     }
 
     @RequestMapping("excluirCli")
-    public String excluirCli(long idCli,RedirectAttributes attrib){
+    public String excluirCli(long idCli,RedirectAttributes attrib,ModelMap model){
+        System.out.println("entrou no excluir");
+
+
         Optional<Cliente> cli = clienteRepository.findById(idCli);
         clienteRepository.deleteById(idCli);
-        attrib.addFlashAttribute("message", "Cliente removido com sucesso.");
+        model.addAttribute("exclui", "Cliente removido com sucesso.");
         return "redirect:/gerenciarCli";
     }
 
@@ -87,6 +98,10 @@ public class ClienteController {
             attributes.addFlashAttribute("message", "Foi digitado nada.");
             return new ModelAndView("redirect:/gerenciarCli");
 
+        }
+        if(nomeCli.length() < 2){
+            attributes.addFlashAttribute("message", "Nome não encontrado.");
+            return new ModelAndView("redirect:/gerenciarCli");
         }
 
 //        Cliente cli = new Cliente();

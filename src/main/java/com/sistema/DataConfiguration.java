@@ -22,11 +22,11 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
-import org.thymeleaf.spring5.SpringTemplateEngine;
-import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
-import org.thymeleaf.spring5.view.ThymeleafViewResolver;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+//import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
+//import org.thymeleaf.spring5.SpringTemplateEngine;
+//import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
+//import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+//import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletContext;
@@ -50,36 +50,36 @@ public class DataConfiguration extends AbstractHttpSessionApplicationInitializer
     }
 
 
-    @Bean
-    @Description("Thymeleaf Template Resolver")
-    public ServletContextTemplateResolver templateResolver() {
-        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(ctx);
-        templateResolver.setPrefix("/WEB-INF/views/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
+//    @Bean
+//    @Description("Thymeleaf Template Resolver")
+//    public ServletContextTemplateResolver templateResolver() {
+//        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(ctx);
+//        templateResolver.setPrefix("/WEB-INF/views/");
+//        templateResolver.setSuffix(".html");
+//        templateResolver.setTemplateMode("HTML5");
+//
+//        return templateResolver;
+//    }
 
-        return templateResolver;
-    }
+//    @Bean
+//    @Description("Thymeleaf Template Engine")
+//    public SpringTemplateEngine templateEngine() {
+//
+//        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+//        templateEngine.setTemplateResolver(templateResolver());
+//        templateEngine.setTemplateEngineMessageSource(messageSource());
+//        templateEngine.addDialect(new SpringSecurityDialect());
+//        return templateEngine;
+//    }
 
-    @Bean
-    @Description("Thymeleaf Template Engine")
-    public SpringTemplateEngine templateEngine() {
-
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-        templateEngine.setTemplateEngineMessageSource(messageSource());
-        templateEngine.addDialect(new SpringSecurityDialect());
-        return templateEngine;
-    }
-
-    @Bean
-    @Description("Thymeleaf View Resolver")
-    public ThymeleafViewResolver viewResolver() {
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setTemplateEngine(templateEngine());
-        viewResolver.setOrder(1);
-        return viewResolver;
-    }
+//    @Bean
+//    @Description("Thymeleaf View Resolver")
+//    public ThymeleafViewResolver viewResolver() {
+//        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+//        viewResolver.setTemplateEngine(templateEngine());
+//        viewResolver.setOrder(1);
+//        return viewResolver;
+//    }
 
 //    @Bean
 //    public SpringTemplateEngine templateEngine() {
@@ -89,6 +89,14 @@ public class DataConfiguration extends AbstractHttpSessionApplicationInitializer
 //
 //        return templateEngine;
 //    }
+    @Bean
+    public InternalResourceViewResolver setupViewResolver()  {
+        InternalResourceViewResolver resolver =  new InternalResourceViewResolver();
+        resolver.setPrefix ("/ui/jsp/");
+        resolver.setSuffix (".jsp");
+        resolver.setViewClass (JstlView.class);
+        return resolver;
+    }
 
     @Bean
     @Description("Spring Message Resolver")
