@@ -65,7 +65,6 @@ public class ClienteController extends HttpServlet {
 
     @RequestMapping(value = "/buscarCli" , method = RequestMethod.GET)
     public ModelAndView  buscarCli(@RequestParam("idCli") Long idCli, Model model){
-        System.out.println("entrou no buscarCli");
         ModelAndView mv = new ModelAndView("editarCli");
         Optional<Cliente> cliente = this.clienteRepository.findById(idCli);
         mv.addObject("cliente",cliente.get());
@@ -75,6 +74,7 @@ public class ClienteController extends HttpServlet {
 
     @RequestMapping(value="/editarCli")
     public ModelAndView editarCli(Cliente cliente){
+        System.out.println("entrou no editarCli");
         clienteRepository.save(cliente);
         return new ModelAndView("redirect:/gerenciarCli");
     }

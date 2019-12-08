@@ -42,10 +42,9 @@ public class RoupaUtensiliosController {
         ModelAndView mv = new ModelAndView("gerenciarRoupaUtensilios");
         Iterable<RoupaUtensilios> roupaUtensilios = roupaUtensiliosRepository.findAll();
         mv.addObject("roupaUtensilios",roupaUtensilios);
-
-        List<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
+        Iterable<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
         mv.addObject("tipoRoupa",tipoRoupa);
-        System.out.println("tipos:"+tipoRoupaRepository.findAll());
+
         return mv;
 
     }
@@ -77,12 +76,17 @@ public class RoupaUtensiliosController {
         ModelAndView mv = new ModelAndView("editarRoupaUtensilios");
         Optional<RoupaUtensilios> roupaU = this.roupaUtensiliosRepository.findById(codRoupaUtensilios);
         mv.addObject("roupaU",roupaU.get());
+        List<TipoRoupa> tipoRoupa = tipoRoupaRepository.findAll();
+        mv.addObject("tiposRoupa",tipoRoupa);
         return mv;
     }
 
-    @RequestMapping(value="/editarRoupaUtensilios")
-    public ModelAndView editarRoupaUtensilios(RoupaUtensilios roupaUtensilios){
-        roupaUtensiliosRepository.saveAndFlush(roupaUtensilios);
+    @RequestMapping(value="/editarRoupaUtensilios", method = RequestMethod.POST)
+    public ModelAndView editarRoupaUtensilios(RoupaUtensilios roupaUtensilios,TipoRoupa tipoRoupa,ModelMap mm){
+//        tipoRoupaRepository.save(tipoRoupa);//se eu dar update na chave estrangeira ela não funciona,tentar fazer na mão
+//        roupaUtensiliosRepository.save(roupaUtensilios);
+
+        mm.addAttribute("roupaUtensilios",dao.alterar(roupaUtensilios));
         return new ModelAndView("redirect:/gerenciarRoupaUtensilios");
     }
 
