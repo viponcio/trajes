@@ -105,7 +105,7 @@ public class ClienteController extends HttpServlet {
         }
 
 //        Cliente cli = new Cliente();
-        System.out.println("nome:"+nomeCli);
+        System.out.println();
         model.addAttribute("clientes", dao.getByNomeCli(nomeCli));
         return new ModelAndView("acharNome",model);
 

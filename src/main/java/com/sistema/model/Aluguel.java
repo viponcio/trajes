@@ -2,6 +2,9 @@ package com.sistema.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 public class Aluguel implements Serializable{
     private static final long serialVersionUID=1L;
@@ -14,10 +17,31 @@ public class Aluguel implements Serializable{
     private String dataProva;
     private String dataRetirada;
     private String dataEntrega;
+    private transient Long idCli;
 
-    @ManyToOne
+    public Long getIdCli() {
+        return idCli;
+    }
+
+    public void setIdCli(Long idCli) {
+        this.idCli = idCli;
+    }
+
+    @ManyToOne//esta funcionando a fk
     @JoinColumn(name="idCli_FK")
     private Cliente cliente;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "Roupa_Aluguel", catalog = "trajesdb", joinColumns = { @JoinColumn(name = "codAluguel_FK", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "codRoupaUtensilios_FK", nullable = false) })
+    private List<RoupaUtensilios> RoupaUtensilioss;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
     public Aluguel(){
 
@@ -39,17 +63,6 @@ public class Aluguel implements Serializable{
 
     public void setCodAluguel(Long codAluguel) {
         this.codAluguel = codAluguel;
-    }
-
-
-
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 
     public String getDataEvento() {
@@ -82,5 +95,13 @@ public class Aluguel implements Serializable{
 
     public void setDataEntrega(String dataEntrega) {
         this.dataEntrega = dataEntrega;
+    }
+
+    public List<RoupaUtensilios> getRoupaUtensilioss() {
+        return RoupaUtensilioss;
+    }
+
+    public void setRoupaUtensilioss(List<RoupaUtensilios> roupaUtensilioss) {
+        RoupaUtensilioss = roupaUtensilioss;
     }
 }

@@ -64,6 +64,8 @@ public class RoupaUtensiliosController {
         if (roupaUtensilios.getCodTipoRoupa() != null) {
             roupaUtensilios.setTipoRoupa(tipoRoupaRepository.findById(roupaUtensilios.getCodTipoRoupa()).get());
         }
+        System.out.println("codigo tipo:"+roupaUtensilios.getCodTipoRoupa());
+
 
         roupaUtensiliosRepository.saveAndFlush(roupaUtensilios);
 

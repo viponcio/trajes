@@ -1,6 +1,8 @@
 package com.sistema.model;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class RoupaUtensilios implements Serializable {
@@ -27,6 +29,9 @@ public class RoupaUtensilios implements Serializable {
     @ManyToOne
     @JoinColumn(name = "codTipoRoupa")
     private TipoRoupa tipoRoupa;
+
+//    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "RoupaUtensilios")
+//    private List<Aluguel> alugueis;
 
     public TipoRoupa getTipoRoupa() {
         return tipoRoupa;
