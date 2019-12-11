@@ -1,4 +1,4 @@
-package com.sistema.trajes.controller;
+package com.vitoria.trajes.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
